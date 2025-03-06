@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; My sample book</title>
+    <title>Data Understanding &#8212; My sample book</title>
   
   
   
@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'datamining';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="OUTLIER DETEKSI" href="datamining%20lanjutan.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,7 +179,14 @@
                 </a>
             </li>
         </ul>
-        
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamining%20lanjutan.html">OUTLIER DETEKSI</a></li>
+
+
+
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -349,9 +357,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -362,19 +368,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Data Understanding</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -384,7 +382,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="data-understanding">
+<h1>Data Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install pymysql
 <span class="o">%</span><span class="k">pip</span> install psycopg2
@@ -484,7 +484,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> id           class  petal_length  petal_width  sepal_length  sepal_width
   1     Iris-setosa           1.4          0.2           5.1          3.5
-  2     Iris-setosa           1.4          0.2           4.9          3.0
+  2     Iris-setosa           1.4          0.2          40.9         30.0
   3     Iris-setosa           1.3          0.2           4.7          3.2
   4     Iris-setosa           1.5          0.2           4.6          3.1
   5     Iris-setosa           1.4          0.2           5.0          3.6
@@ -635,11 +635,12 @@ document.write(`
 150  Iris-virginica           5.1          1.8           5.9          3.0
 </pre></div>
 </div>
-<img alt="_images/5f2336eb1bd178df40e4f06ae1b0c750f8f7e6ded7413878dcb658f4f15f9191.png" src="_images/5f2336eb1bd178df40e4f06ae1b0c750f8f7e6ded7413878dcb658f4f15f9191.png" />
+<img alt="_images/b695c32d2efd062a36afe998f35a4ba0e4ad9a5a95d295aecd1980f3f51cf58e.png" src="_images/b695c32d2efd062a36afe998f35a4ba0e4ad9a5a95d295aecd1980f3f51cf58e.png" />
 <img alt="_images/78123bd32be350c922b1785190a80ca3aba9bc3e381daeac543a727fe90232a0.png" src="_images/78123bd32be350c922b1785190a80ca3aba9bc3e381daeac543a727fe90232a0.png" />
-<img alt="_images/732f6aa05ddde935128b5a72fd4078bb5b386a887a6c7e1e279f8fb09025e043.png" src="_images/732f6aa05ddde935128b5a72fd4078bb5b386a887a6c7e1e279f8fb09025e043.png" />
+<img alt="_images/23426a14ebc3d4db4f9826e4b8b68854a8d92a3bb1686c364ef68f3111204d47.png" src="_images/23426a14ebc3d4db4f9826e4b8b68854a8d92a3bb1686c364ef68f3111204d47.png" />
 </div>
 </div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -680,27 +681,21 @@ document.write(`
         <p class="prev-next-title">Welcome to your Jupyter Book</p>
       </div>
     </a>
+    <a class="right-next"
+       href="datamining%20lanjutan.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">OUTLIER DETEKSI</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
