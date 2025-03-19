@@ -62,7 +62,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'LOF';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="KNN (K-Nearest Neighbors)" href="KNN.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,6 +124,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -176,16 +177,13 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Selamat datang Di catatan Penambangan Data
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="datamining.html">Data Understanding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datamining%20lanjutan.html">OUTLIER DETEKSI</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="Modellingdata.html"><strong>Modelling Data</strong></a></li>
 </ul>
 
     </div>
@@ -713,25 +711,25 @@ Data Outlier:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> id           class  petal_length  petal_width  sepal_length  sepal_width  outlier_label
-  1     Iris-setosa           1.4          0.2           5.1          3.5              1
+  1     Iris-setosa          55.4         65.2           5.1          3.5             -1
   2     Iris-setosa          14.0          2.0          40.9         30.0             -1
-  3     Iris-setosa           1.3          0.2           4.7          3.2              1
+  3     Iris-setosa           3.6          1.5           4.7          3.2              1
   4     Iris-setosa           1.5          0.2           4.6          3.1              1
   5     Iris-setosa           1.4          0.2           5.0          3.6              1
-  6     Iris-setosa           1.7          0.4           5.4          3.9              1
+  6     Iris-setosa           1.7          0.4           6.5          1.3              1
   7     Iris-setosa           1.4          0.3           4.6          3.4              1
   8     Iris-setosa           1.5          0.2           5.0          3.4              1
-  9     Iris-setosa           1.4          0.2           4.4          2.9              1
+  9     Iris-setosa           4.7          3.2           4.4          2.9              1
  10     Iris-setosa           1.5          0.1           4.9          3.1              1
  11     Iris-setosa           1.5          0.2           5.4          3.7              1
- 12     Iris-setosa           1.6          0.2           4.8          3.4              1
+ 12     Iris-setosa           1.6          0.2          33.8         45.4             -1
  13     Iris-setosa           1.4          0.1           4.8          3.0              1
- 14     Iris-setosa           1.1          0.1           4.3          3.0              1
- 15     Iris-setosa           1.2          0.2           5.8          4.0              1
+ 14     Iris-setosa           1.1          0.1           2.1          5.5             -1
+ 15     Iris-setosa           1.2          0.2           1.2          5.6             -1
  16     Iris-setosa           1.5          0.4           5.7          4.4              1
- 17     Iris-setosa           1.3          0.4           5.4          3.9              1
+ 17     Iris-setosa           4.1          1.7           5.4          3.9              1
  18     Iris-setosa           1.4          0.3           5.1          3.5              1
- 19     Iris-setosa           1.7          0.3           5.7          3.8              1
+ 19     Iris-setosa           1.7          0.3          25.0         11.7             -1
  20     Iris-setosa           1.5          0.3           5.1          3.8              1
  21     Iris-setosa           1.7          0.2           5.4          3.4              1
  22     Iris-setosa           1.5          0.4           5.1          3.7              1
@@ -739,7 +737,7 @@ Data Outlier:
  24     Iris-setosa           1.7          0.5           5.1          3.3              1
  25     Iris-setosa           1.9          0.2           4.8          3.4              1
  26     Iris-setosa           1.6          0.2           5.0          3.0              1
- 27     Iris-setosa           1.6          0.4           5.0          3.4              1
+ 27     Iris-setosa           5.3          2.5           5.0          3.4              1
  28     Iris-setosa           1.5          0.2           5.2          3.5              1
  29     Iris-setosa           1.4          0.2           5.2          3.4              1
  30     Iris-setosa           1.6          0.2           4.7          3.2              1
@@ -747,10 +745,10 @@ Data Outlier:
  32     Iris-setosa           1.5          0.4           5.4          3.4              1
  33     Iris-setosa           1.5          0.1           5.2          4.1              1
  34     Iris-setosa           1.4          0.2           5.5          4.2              1
- 35     Iris-setosa           1.5          0.1           4.9          3.1              1
+ 35     Iris-setosa          75.5         54.1          12.4          6.3             -1
  36     Iris-setosa           1.2          0.2           5.0          3.2              1
  37     Iris-setosa           1.3          0.2           5.5          3.5              1
- 38     Iris-setosa           1.5          0.1           4.9          3.1              1
+ 38     Iris-setosa           4.9          3.0           4.9          3.1              1
  39     Iris-setosa           1.3          0.2           4.4          3.0              1
  40     Iris-setosa           1.5          0.2           5.1          3.4              1
  41     Iris-setosa           1.3          0.3           5.0          3.5              1
@@ -766,36 +764,36 @@ Data Outlier:
  51 Iris-versicolor           4.7          1.4           7.0          3.2              1
  52 Iris-versicolor           4.5          1.5           6.4          3.2              1
  53 Iris-versicolor           4.9          1.5           6.9          3.1              1
- 54 Iris-versicolor           4.0          1.3           5.5          2.3              1
+ 54 Iris-versicolor           4.0          1.3          23.7          1.5             -1
  55 Iris-versicolor           4.6          1.5           6.5          2.8              1
  56 Iris-versicolor           4.5          1.3           5.7          2.8              1
- 57 Iris-versicolor           4.7          1.6           6.3          3.3              1
+ 57 Iris-versicolor           5.8          4.0           6.3          3.3              1
  58 Iris-versicolor           3.3          1.0           4.9          2.4              1
- 59 Iris-versicolor           4.6          1.3           6.6          2.9              1
+ 59 Iris-versicolor           4.6          1.3          61.6         22.9             -1
  60 Iris-versicolor           3.9          1.4           5.2          2.7              1
  61 Iris-versicolor           3.5          1.0           5.0          2.0              1
  62 Iris-versicolor           4.2          1.5           5.9          3.0              1
- 63 Iris-versicolor           4.0          1.0           6.0          2.2              1
+ 63 Iris-versicolor           4.0          1.0           4.8          1.7              1
  64 Iris-versicolor           4.7          1.4           6.1          2.9              1
- 65 Iris-versicolor           3.6          1.3           5.6          2.9              1
+ 65 Iris-versicolor          35.6          1.3          14.6          3.3             -1
  66 Iris-versicolor           4.4          1.4           6.7          3.1              1
  67 Iris-versicolor           4.5          1.5           5.6          3.0              1
- 68 Iris-versicolor           4.1          1.0           5.8          2.7              1
+ 68 Iris-versicolor           5.8          3.5           5.8          2.7              1
  69 Iris-versicolor           4.5          1.5           6.2          2.2              1
- 70 Iris-versicolor           3.9          1.1           5.6          2.5              1
+ 70 Iris-versicolor           3.9          1.1           5.6         29.5             -1
  71 Iris-versicolor           4.8          1.8           5.9          3.2              1
  72 Iris-versicolor           4.0          1.3           6.1          2.8              1
  73 Iris-versicolor           4.9          1.5           6.3          2.5              1
  74 Iris-versicolor           4.7          1.2           6.1          2.8              1
  75 Iris-versicolor           4.3          1.3           6.4          2.9              1
  76 Iris-versicolor           4.4          1.4           6.6          3.0              1
- 77 Iris-versicolor           4.8          1.4           6.8          2.8              1
+ 77 Iris-versicolor          44.8          1.4          13.5          4.5             -1
  78 Iris-versicolor           5.0          1.7           6.7          3.0              1
  79 Iris-versicolor           4.5          1.5           6.0          2.9              1
  80 Iris-versicolor           3.5          1.0           5.7          2.6              1
  81 Iris-versicolor           3.8          1.1           5.5          2.4              1
  82 Iris-versicolor           3.7          1.0           5.5          2.4              1
- 83 Iris-versicolor           3.9          1.2           5.8          2.7              1
+ 83 Iris-versicolor           4.5          3.2           5.8          2.7              1
  84 Iris-versicolor           5.1          1.6           6.0          2.7              1
  85 Iris-versicolor           4.5          1.5           5.4          3.0              1
  86 Iris-versicolor           4.5          1.6           6.0          3.4              1
@@ -804,37 +802,37 @@ Data Outlier:
  89 Iris-versicolor           4.1          1.3           5.6          3.0              1
  90 Iris-versicolor           4.0          1.3           5.5          2.5              1
  91 Iris-versicolor           4.4          1.2           5.5          2.6              1
- 92 Iris-versicolor           4.6          1.4           6.1          3.0              1
+ 92 Iris-versicolor           5.4          2.4           6.1          3.0              1
  93 Iris-versicolor           4.0          1.2           5.8          2.6              1
  94 Iris-versicolor           3.3          1.0           5.0          2.3              1
  95 Iris-versicolor           4.2          1.3           5.6          2.7              1
- 96 Iris-versicolor           4.2          1.2           5.7          3.0              1
+ 96 Iris-versicolor           4.2          1.2           6.0          1.3              1
  97 Iris-versicolor           4.2          1.3           5.7          2.9              1
  98 Iris-versicolor           4.3          1.3           6.2          2.9              1
  99 Iris-versicolor           3.0          1.1           5.1          2.5              1
-100 Iris-versicolor           4.1          1.3           5.7          2.8              1
-101  Iris-virginica           6.0          2.5           6.3          3.3              1
+100 Iris-versicolor           5.0          3.5           5.7          2.8              1
+101  Iris-virginica           6.0          2.5          62.3         21.3             -1
 102  Iris-virginica           5.1          1.9           5.8          2.7              1
 103  Iris-virginica           5.9          2.1           7.1          3.0              1
 104  Iris-virginica           5.6          1.8           6.3          2.9              1
 105  Iris-virginica           5.8          2.2           6.5          3.0              1
-106  Iris-virginica           6.6          2.1           7.6          3.0              1
+106  Iris-virginica           6.6          2.1           2.9          1.5              1
 107  Iris-virginica           4.5          1.7           4.9          2.5              1
 108  Iris-virginica           6.3          1.8           7.3          2.9              1
 109  Iris-virginica           5.8          1.8           6.7          2.5              1
-110  Iris-virginica           6.1          2.5           7.2          3.6              1
+110  Iris-virginica           5.1          3.5           7.2          3.6              1
 111  Iris-virginica           5.1          2.0           6.5          3.2              1
 112  Iris-virginica           5.3          1.9           6.4          2.7              1
 113  Iris-virginica           5.5          2.1           6.8          3.0              1
 114  Iris-virginica           5.0          2.0           5.7          2.5              1
-115  Iris-virginica           5.1          2.4           5.8          2.8              1
+115  Iris-virginica          58.1          2.4           6.2         17.9             -1
 116  Iris-virginica           5.3          2.3           6.4          3.2              1
 117  Iris-virginica           5.5          1.8           6.5          3.0              1
 118  Iris-virginica           6.7          2.2           7.7          3.8              1
 119  Iris-virginica           6.9          2.3           7.7          2.6              1
 120  Iris-virginica           5.0          1.5           6.0          2.2              1
 121  Iris-virginica           5.7          2.3           6.9          3.2              1
-122  Iris-virginica           4.9          2.0           5.6          2.8              1
+122  Iris-virginica           4.2          1.2           5.6          2.8              1
 123  Iris-virginica           6.7          2.0           7.7          2.8              1
 124  Iris-virginica           4.9          1.8           6.3          2.7              1
 125  Iris-virginica           5.7          2.1           6.7          3.3              1
@@ -842,16 +840,16 @@ Data Outlier:
 127  Iris-virginica           4.8          1.8           6.2          2.8              1
 128  Iris-virginica           4.9          1.8           6.1          3.0              1
 129  Iris-virginica           5.6          2.1           6.4          2.8              1
-130  Iris-virginica           5.8          1.6           7.2          3.0              1
-131  Iris-virginica           6.1          1.9           7.4          2.8              1
-132  Iris-virginica           6.4          2.0           7.9          3.8              1
+130  Iris-virginica           6.5          2.1           7.2          3.0              1
+131  Iris-virginica           6.1          1.9          70.4         24.8             -1
+132  Iris-virginica          68.4         66.0          10.5          2.8             -1
 133  Iris-virginica           5.6          2.2           6.4          2.8              1
 134  Iris-virginica           5.1          1.5           6.3          2.8              1
 135  Iris-virginica           5.6          1.4           6.1          2.6              1
 136  Iris-virginica           6.1          2.3           7.7          3.0              1
 137  Iris-virginica           5.6          2.4           6.3          3.4              1
-138  Iris-virginica           5.5          1.8           6.4          3.1              1
-139  Iris-virginica           4.8          1.8           6.0          3.0              1
+138  Iris-virginica           2.1          2.2           6.4          3.1              1
+139  Iris-virginica           4.8          1.8           7.0          4.0              1
 140  Iris-virginica           5.4          2.1           6.9          3.1              1
 141  Iris-virginica           5.6          2.4           6.7          3.1              1
 142  Iris-virginica           5.1          2.3           6.9          3.1              1
@@ -859,17 +857,32 @@ Data Outlier:
 144  Iris-virginica           5.9          2.3           6.8          3.2              1
 145  Iris-virginica           5.7          2.5           6.7          3.3              1
 146  Iris-virginica           5.2          2.3           6.7          3.0              1
-147  Iris-virginica           5.0          1.9           6.3          2.5              1
+147  Iris-virginica           5.6          1.2           6.3          2.5              1
 148  Iris-virginica           5.2          2.0           6.5          3.0              1
-149  Iris-virginica           5.4          2.3           6.2          3.4              1
+149  Iris-virginica          70.4         65.3          40.1         41.7             -1
 150  Iris-virginica           5.1          1.8           5.9          3.0              1
-151             ???           5.1          3.2           5.8          1.0              1
 
-Jumlah outlier: 1
+Jumlah outlier: 17
 
 Data Outlier:
- id       class  petal_length  petal_width  sepal_length  sepal_width  outlier_label
-  2 Iris-setosa          14.0          2.0          40.9         30.0             -1
+ id           class  petal_length  petal_width  sepal_length  sepal_width  outlier_label
+  1     Iris-setosa          55.4         65.2           5.1          3.5             -1
+  2     Iris-setosa          14.0          2.0          40.9         30.0             -1
+ 12     Iris-setosa           1.6          0.2          33.8         45.4             -1
+ 14     Iris-setosa           1.1          0.1           2.1          5.5             -1
+ 15     Iris-setosa           1.2          0.2           1.2          5.6             -1
+ 19     Iris-setosa           1.7          0.3          25.0         11.7             -1
+ 35     Iris-setosa          75.5         54.1          12.4          6.3             -1
+ 54 Iris-versicolor           4.0          1.3          23.7          1.5             -1
+ 59 Iris-versicolor           4.6          1.3          61.6         22.9             -1
+ 65 Iris-versicolor          35.6          1.3          14.6          3.3             -1
+ 70 Iris-versicolor           3.9          1.1           5.6         29.5             -1
+ 77 Iris-versicolor          44.8          1.4          13.5          4.5             -1
+101  Iris-virginica           6.0          2.5          62.3         21.3             -1
+115  Iris-virginica          58.1          2.4           6.2         17.9             -1
+131  Iris-virginica           6.1          1.9          70.4         24.8             -1
+132  Iris-virginica          68.4         66.0          10.5          2.8             -1
+149  Iris-virginica          70.4         65.3          40.1         41.7             -1
 </pre></div>
 </div>
 </div>
@@ -907,15 +920,6 @@ Data Outlier:
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="KNN.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><strong>KNN (K-Nearest Neighbors)</strong></p>
-      </div>
-    </a>
 </div>
                 </footer>
               
