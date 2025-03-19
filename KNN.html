@@ -421,7 +421,9 @@ document.write(`
   Downloading PyMySQL-1.1.1-py3-none-any.whl.metadata (4.4 kB)
 Downloading PyMySQL-1.1.1-py3-none-any.whl (44 kB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/45.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">45.0/45.0 kB</span> <span class=" -Color -Color-Red">1.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">45.0/45.0 kB</span> <span class=" -Color -Color-Red">1.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -436,205 +438,14 @@ Successfully installed pymysql-1.1.1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import psycopg2</span>
-<span class="c1"># import pymysql</span>
-<span class="c1"># import numpy as np</span>
-<span class="c1"># import pandas as pd</span>
-<span class="c1"># import seaborn as sns</span>
-<span class="c1"># import matplotlib.pyplot as plt</span>
-<span class="c1"># from sklearn.neighbors import NearestNeighbors</span>
-
-<span class="c1"># def get_pg_data():</span>
-<span class="c1">#     conn = psycopg2.connect(</span>
-<span class="c1">#         host=&quot;pg-e0bfcfb-syauqifuady76-9d72.k.aivencloud.com&quot;,</span>
-<span class="c1">#         user=&quot;avnadmin&quot;,</span>
-<span class="c1">#         password=&quot;AVNS_bnzkAQjTkJGyBzi_GB2&quot;,</span>
-<span class="c1">#         database=&quot;defaultdb&quot;,</span>
-<span class="c1">#         port=23675</span>
-<span class="c1">#     )</span>
-<span class="c1">#     cursor = conn.cursor()</span>
-<span class="c1">#     cursor.execute(&quot;SELECT * FROM mad&quot;)</span>
-<span class="c1">#     data = cursor.fetchall()</span>
-<span class="c1">#     columns = [desc[0] for desc in cursor.description]</span>
-<span class="c1">#     cursor.close()</span>
-<span class="c1">#     conn.close()</span>
-<span class="c1">#     return pd.DataFrame(data, columns=columns)</span>
-
-<span class="c1"># def get_mysql_data():</span>
-<span class="c1">#     conn = pymysql.connect(</span>
-<span class="c1">#         host=&quot;mysql-1b41a3bb-ahmadsyauqifuady33-3378.f.aivencloud.com&quot;,</span>
-<span class="c1">#         user=&quot;avnadmin&quot;,</span>
-<span class="c1">#         password=&quot;AVNS_-Cfznxfa1-nPQJ9qmWT&quot;,</span>
-<span class="c1">#         database=&quot;defaultdb&quot;,</span>
-<span class="c1">#         port=10733</span>
-<span class="c1">#     )</span>
-<span class="c1">#     cursor = conn.cursor()</span>
-<span class="c1">#     cursor.execute(&quot;SELECT * FROM ayam&quot;)</span>
-<span class="c1">#     data = cursor.fetchall()</span>
-<span class="c1">#     columns = [desc[0] for desc in cursor.description]</span>
-<span class="c1">#     cursor.close()</span>
-<span class="c1">#     conn.close()</span>
-<span class="c1">#     return pd.DataFrame(data, columns=columns)</span>
-
-<span class="c1"># # Ambil data dari kedua database</span>
-<span class="c1"># df_postgresql = get_pg_data()</span>
-<span class="c1"># df_mysql = get_mysql_data()</span>
-
-<span class="c1"># # Gabungkan berdasarkan kolom &#39;id&#39;</span>
-<span class="c1"># df_merged = pd.merge(df_mysql, df_postgresql, on=[&quot;id&quot;, &quot;class&quot;], how=&quot;inner&quot;)</span>
-
-<span class="c1"># # Ambil data fitur numerik</span>
-<span class="c1"># feature_columns = [&quot;petal_length&quot;, &quot;petal_width&quot;, &quot;sepal_length&quot;, &quot;sepal_width&quot;]</span>
-<span class="c1"># data_values = df_merged[feature_columns].values</span>
-
-<span class="c1"># # KNN Outlier Detection</span>
-<span class="c1"># def knn_outlier_detection(data, k=5):</span>
-<span class="c1">#     neigh = NearestNeighbors(n_neighbors=k)</span>
-<span class="c1">#     neigh.fit(data)</span>
-<span class="c1">#     distances, _ = neigh.kneighbors(data)</span>
-<span class="c1">#     avg_distances = distances[:, -1]  # Ambil jarak k-terjauh sebagai skor</span>
-<span class="c1">#     return avg_distances</span>
-
-<span class="c1"># # Hitung K-NN distance</span>
-<span class="c1"># df_merged[&quot;knn_distance&quot;] = knn_outlier_detection(data_values, k=5)</span>
-
-<span class="c1"># # Tentukan threshold sebagai nilai rata-rata + 2 standar deviasi</span>
-<span class="c1"># threshold = df_merged[&quot;knn_distance&quot;].mean() + 2 * df_merged[&quot;knn_distance&quot;].std()</span>
-<span class="c1"># df_merged[&quot;outlier_knn&quot;] = df_merged[&quot;knn_distance&quot;] &gt; threshold</span>
-
-<span class="c1"># # Cetak hasil</span>
-<span class="c1"># df_result = df_merged[[&quot;id&quot;, &quot;class&quot;, &quot;petal_length&quot;, &quot;petal_width&quot;, &quot;sepal_length&quot;, &quot;sepal_width&quot;, &quot;knn_distance&quot;, &quot;outlier_knn&quot;]]</span>
-<span class="c1"># print(df_result.to_string(index=False))</span>
-<span class="c1"># num_outliers = df_merged[&quot;outlier_knn&quot;].sum()</span>
-<span class="c1"># print(f&quot;\nJumlah outlier: {num_outliers}&quot;)</span>
-
-<span class="c1"># # Cetak data outlier</span>
-<span class="c1"># outliers = df_merged[df_merged[&quot;outlier_knn&quot;]]</span>
-<span class="c1"># print(&quot;\nData Outlier:&quot;)</span>
-<span class="c1"># print(outliers.to_string(index=False))</span>
-
-<span class="c1"># # Visualisasi outlier berdasarkan K-NN</span>
-<span class="c1"># plt.figure(figsize=(8, 6))</span>
-<span class="c1"># sns.scatterplot(</span>
-<span class="c1">#     x=df_merged[&quot;sepal_length&quot;], y=df_merged[&quot;sepal_width&quot;],</span>
-<span class="c1">#     hue=df_merged[&quot;outlier_knn&quot;], palette={False: &quot;blue&quot;, True: &quot;red&quot;}</span>
-<span class="c1"># )</span>
-<span class="c1"># plt.title(&quot;Outlier Detection (Sepal) - KNN&quot;)</span>
-<span class="c1"># plt.show()</span>
-
-<span class="c1"># plt.figure(figsize=(8, 6))</span>
-<span class="c1"># sns.scatterplot(</span>
-<span class="c1">#     x=df_merged[&quot;petal_length&quot;], y=df_merged[&quot;petal_width&quot;],</span>
-<span class="c1">#     hue=df_merged[&quot;outlier_knn&quot;], palette={False: &quot;blue&quot;, True: &quot;red&quot;}</span>
-<span class="c1"># )</span>
-<span class="c1"># plt.title(&quot;Outlier Detection (Petal) - KNN&quot;)</span>
-<span class="c1"># plt.show()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import psycopg2</span>
-<span class="c1"># import pymysql</span>
-<span class="c1"># import numpy as np</span>
-<span class="c1"># import pandas as pd</span>
-<span class="c1"># import seaborn as sns</span>
-<span class="c1"># import matplotlib.pyplot as plt</span>
-<span class="c1"># from sklearn.neighbors import LocalOutlierFactor</span>
-
-<span class="c1"># # Fungsi untuk mengambil data dari PostgreSQL</span>
-<span class="c1"># def get_pg_data():</span>
-<span class="c1">#     conn = psycopg2.connect(</span>
-<span class="c1">#         host=&quot;pg-e0bfcfb-syauqifuady76-9d72.k.aivencloud.com&quot;,</span>
-<span class="c1">#         user=&quot;avnadmin&quot;,</span>
-<span class="c1">#         password=&quot;AVNS_bnzkAQjTkJGyBzi_GB2&quot;,</span>
-<span class="c1">#         database=&quot;defaultdb&quot;,</span>
-<span class="c1">#         port=23675</span>
-<span class="c1">#     )</span>
-<span class="c1">#     cursor = conn.cursor()</span>
-<span class="c1">#     cursor.execute(&quot;SELECT * FROM mad&quot;)  # Gantilah &quot;mad&quot; dengan nama tabel yang sesuai</span>
-<span class="c1">#     data = cursor.fetchall()</span>
-<span class="c1">#     columns = [desc[0] for desc in cursor.description]</span>
-<span class="c1">#     cursor.close()</span>
-<span class="c1">#     conn.close()</span>
-<span class="c1">#     return pd.DataFrame(data, columns=columns)</span>
-
-<span class="c1"># # Fungsi untuk mengambil data dari MySQL</span>
-<span class="c1"># def get_mysql_data():</span>
-<span class="c1">#     conn = pymysql.connect(</span>
-<span class="c1">#         host=&quot;mysql-1b41a3bb-ahmadsyauqifuady33-3378.f.aivencloud.com&quot;,</span>
-<span class="c1">#         user=&quot;avnadmin&quot;,</span>
-<span class="c1">#         password=&quot;AVNS_-Cfznxfa1-nPQJ9qmWT&quot;,</span>
-<span class="c1">#         database=&quot;defaultdb&quot;,</span>
-<span class="c1">#         port=10733</span>
-<span class="c1">#     )</span>
-<span class="c1">#     cursor = conn.cursor()</span>
-<span class="c1">#     cursor.execute(&quot;SELECT * FROM ayam&quot;)  # Gantilah &quot;ayam&quot; dengan nama tabel yang sesuai</span>
-<span class="c1">#     data = cursor.fetchall()</span>
-<span class="c1">#     columns = [desc[0] for desc in cursor.description]</span>
-<span class="c1">#     cursor.close()</span>
-<span class="c1">#     conn.close()</span>
-<span class="c1">#     return pd.DataFrame(data, columns=columns)</span>
-
-<span class="c1"># # Fungsi untuk mendeteksi dan memfilter outlier menggunakan LOF</span>
-<span class="c1"># def detect_and_filter_outliers(df, n_neighbors=20, contamination=0.05):</span>
-<span class="c1">#     &quot;&quot;&quot;</span>
-<span class="c1">#     Mendeteksi outlier menggunakan Local Outlier Factor (LOF).</span>
-<span class="c1">#     Args:</span>
-<span class="c1">#         df: DataFrame yang berisi data numerik.</span>
-<span class="c1">#         n_neighbors: Jumlah tetangga yang dipertimbangkan dalam LOF.</span>
-<span class="c1">#         contamination: Persentase data yang diperkirakan sebagai outlier.</span>
-
-<span class="c1">#     Returns:</span>
-<span class="c1">#         DataFrame yang berisi data tanpa outlier.</span>
-<span class="c1">#     &quot;&quot;&quot;</span>
-<span class="c1">#     numeric_df = df.select_dtypes(include=[np.number])  # Hanya memilih kolom numerik</span>
-
-<span class="c1">#     if numeric_df.empty:</span>
-<span class="c1">#         print(&quot;DataFrame tidak memiliki kolom numerik untuk analisis outlier.&quot;)</span>
-<span class="c1">#         return df</span>
-
-<span class="c1">#     lof = LocalOutlierFactor(n_neighbors=n_neighbors, contamination=contamination)</span>
-<span class="c1">#     outlier_labels = lof.fit_predict(numeric_df)</span>
-
-<span class="c1">#     df[&quot;outlier&quot;] = outlier_labels  # -1 untuk outlier, 1 untuk normal</span>
-
-<span class="c1">#     outliers = df[df[&quot;outlier&quot;] == -1]</span>
-<span class="c1">#     filtered_df = df[df[&quot;outlier&quot;] == 1].drop(columns=[&quot;outlier&quot;])</span>
-
-<span class="c1">#     print(&quot;Data Outlier:&quot;)</span>
-<span class="c1">#     print(outliers)</span>
-
-<span class="c1">#     print(&quot;\nData yang sudah difilter:&quot;)</span>
-<span class="c1">#     print(filtered_df)</span>
-
-<span class="c1">#     return filtered_df</span>
-
-<span class="c1"># # Contoh Penggunaan</span>
-<span class="c1"># df_pg = get_pg_data()</span>
-<span class="c1"># df_mysql = get_mysql_data()</span>
-
-<span class="c1"># print(&quot;\nAnalisis Outlier untuk Data PostgreSQL:&quot;)</span>
-<span class="c1"># filtered_pg = detect_and_filter_outliers(df_pg)</span>
-
-<span class="c1"># print(&quot;\nAnalisis Outlier untuk Data MySQL:&quot;)</span>
-<span class="c1"># filtered_mysql = detect_and_filter_outliers(df_mysql)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psycopg2</span>
 <span class="kn">import</span> <span class="nn">pymysql</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">NearestNeighbors</span>
 
-<span class="c1"># Fungsi untuk mengambil data dari PostgreSQL</span>
 <span class="k">def</span> <span class="nf">get_pg_data</span><span class="p">():</span>
     <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
         <span class="n">host</span><span class="o">=</span><span class="s2">&quot;pg-e0bfcfb-syauqifuady76-9d72.k.aivencloud.com&quot;</span><span class="p">,</span>
@@ -644,14 +455,13 @@ Successfully installed pymysql-1.1.1
         <span class="n">port</span><span class="o">=</span><span class="mi">23675</span>
     <span class="p">)</span>
     <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM mad&quot;</span><span class="p">)</span>  <span class="c1"># Ganti dengan nama tabel yang sesuai</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM mad&quot;</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
     <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">desc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">desc</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">description</span><span class="p">]</span>
     <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
 
-<span class="c1"># Fungsi untuk mengambil data dari MySQL</span>
 <span class="k">def</span> <span class="nf">get_mysql_data</span><span class="p">():</span>
     <span class="n">conn</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
         <span class="n">host</span><span class="o">=</span><span class="s2">&quot;mysql-1b41a3bb-ahmadsyauqifuady33-3378.f.aivencloud.com&quot;</span><span class="p">,</span>
@@ -661,165 +471,240 @@ Successfully installed pymysql-1.1.1
         <span class="n">port</span><span class="o">=</span><span class="mi">10733</span>
     <span class="p">)</span>
     <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM ayam&quot;</span><span class="p">)</span>  <span class="c1"># Ganti dengan nama tabel yang sesuai</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM ayam&quot;</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
     <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">desc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">desc</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">description</span><span class="p">]</span>
     <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
 
-<span class="c1"># Fungsi untuk mendeteksi dan memfilter outlier menggunakan LOF</span>
-<span class="k">def</span> <span class="nf">detect_and_filter_outliers</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">contamination</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Mendeteksi outlier menggunakan Local Outlier Factor (LOF).</span>
-<span class="sd">    Args:</span>
-<span class="sd">        df: DataFrame yang berisi data numerik.</span>
-<span class="sd">        n_neighbors: Jumlah tetangga yang dipertimbangkan dalam LOF.</span>
-<span class="sd">        contamination: Persentase data yang diperkirakan sebagai outlier.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        DataFrame yang berisi data tanpa outlier.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">numeric_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span>  <span class="c1"># Pilih hanya kolom numerik</span>
-
-    <span class="k">if</span> <span class="n">numeric_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame tidak memiliki kolom numerik untuk analisis outlier.&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">df</span>
-
-    <span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">,</span> <span class="n">contamination</span><span class="o">=</span><span class="n">contamination</span><span class="p">)</span>
-    <span class="n">outlier_labels</span> <span class="o">=</span> <span class="n">lof</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">numeric_df</span><span class="p">)</span>
-
-    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">outlier_labels</span>  <span class="c1"># -1 untuk outlier, 1 untuk data normal</span>
-
-    <span class="n">outliers</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">])</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data Outlier:&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data yang sudah difilter:&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">filtered_df</span>
-
-<span class="c1"># Fungsi untuk menggabungkan data dari PostgreSQL dan MySQL</span>
-<span class="k">def</span> <span class="nf">merge_filtered_data</span><span class="p">(</span><span class="n">df_pg</span><span class="p">,</span> <span class="n">df_mysql</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Menggabungkan dua DataFrame dari PostgreSQL dan MySQL setelah filtering outlier.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        df_pg (DataFrame): Data dari PostgreSQL yang sudah difilter.</span>
-<span class="sd">        df_mysql (DataFrame): Data dari MySQL yang sudah difilter.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        DataFrame yang sudah digabungkan.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Pastikan kolom yang sama sebelum menggabungkan</span>
-    <span class="n">common_columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df_pg</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df_mysql</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
-
-    <span class="n">df_pg</span> <span class="o">=</span> <span class="n">df_pg</span><span class="p">[</span><span class="n">common_columns</span><span class="p">]</span>
-    <span class="n">df_mysql</span> <span class="o">=</span> <span class="n">df_mysql</span><span class="p">[</span><span class="n">common_columns</span><span class="p">]</span>
-
-    <span class="c1"># Menggabungkan data</span>
-    <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_pg</span><span class="p">,</span> <span class="n">df_mysql</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data Gabungan Setelah Filtering:&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">merged_df</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">merged_df</span>
-
-<span class="c1"># 🔹 Contoh Penggunaan</span>
-<span class="n">df_pg</span> <span class="o">=</span> <span class="n">get_pg_data</span><span class="p">()</span>
+<span class="c1"># Ambil data dari kedua database</span>
+<span class="n">df_postgresql</span> <span class="o">=</span> <span class="n">get_pg_data</span><span class="p">()</span>
 <span class="n">df_mysql</span> <span class="o">=</span> <span class="n">get_mysql_data</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔎 Analisis Outlier untuk Data PostgreSQL:&quot;</span><span class="p">)</span>
-<span class="n">filtered_pg</span> <span class="o">=</span> <span class="n">detect_and_filter_outliers</span><span class="p">(</span><span class="n">df_pg</span><span class="p">)</span>
+<span class="c1"># Gabungkan berdasarkan kolom &#39;id&#39;</span>
+<span class="n">df_merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_mysql</span><span class="p">,</span> <span class="n">df_postgresql</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;class&quot;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔎 Analisis Outlier untuk Data MySQL:&quot;</span><span class="p">)</span>
-<span class="n">filtered_mysql</span> <span class="o">=</span> <span class="n">detect_and_filter_outliers</span><span class="p">(</span><span class="n">df_mysql</span><span class="p">)</span>
+<span class="c1"># Ambil data fitur numerik</span>
+<span class="n">feature_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">]</span>
+<span class="n">data_values</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="n">feature_columns</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
-<span class="c1"># 🔹 Menggabungkan data yang sudah difilter</span>
-<span class="n">merged_data</span> <span class="o">=</span> <span class="n">merge_filtered_data</span><span class="p">(</span><span class="n">filtered_pg</span><span class="p">,</span> <span class="n">filtered_mysql</span><span class="p">)</span>
+<span class="c1"># KNN Outlier Detection</span>
+<span class="k">def</span> <span class="nf">knn_outlier_detection</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">neigh</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">neigh</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">distances</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">neigh</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">avg_distances</span> <span class="o">=</span> <span class="n">distances</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Ambil jarak k-terjauh sebagai skor</span>
+    <span class="k">return</span> <span class="n">avg_distances</span>
 
-<span class="c1"># 🔹 Simpan hasil ke file CSV (opsional)</span>
-<span class="n">merged_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;merged_filtered_data.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Hitung K-NN distance</span>
+<span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;knn_distance&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">knn_outlier_detection</span><span class="p">(</span><span class="n">data_values</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Tentukan threshold sebagai nilai rata-rata + 2 standar deviasi</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;knn_distance&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;knn_distance&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier_knn&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;knn_distance&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+
+<span class="c1"># Cetak hasil</span>
+<span class="n">df_result</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;knn_distance&quot;</span><span class="p">,</span> <span class="s2">&quot;outlier_knn&quot;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_result</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">num_outliers</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier_knn&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Jumlah outlier: </span><span class="si">{</span><span class="n">num_outliers</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Cetak data outlier</span>
+<span class="n">outliers</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier_knn&quot;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data Outlier:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">outliers</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="c1"># Visualisasi outlier berdasarkan K-NN</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;sepal_width&quot;</span><span class="p">],</span>
+    <span class="n">hue</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier_knn&quot;</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="kc">False</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Outlier Detection (Sepal) - KNN&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;petal_length&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;petal_width&quot;</span><span class="p">],</span>
+    <span class="n">hue</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier_knn&quot;</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="kc">False</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Outlier Detection (Petal) - KNN&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🔎 Analisis Outlier untuk Data PostgreSQL:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> id           class  petal_length  petal_width  sepal_length  sepal_width  knn_distance  outlier_knn
+  1     Iris-setosa          55.4         65.2           5.1          3.5     64.495736         True
+  2     Iris-setosa          14.0          2.0          40.9         30.0     27.237474        False
+  3     Iris-setosa           3.6          1.5           4.7          3.2      1.081665        False
+  4     Iris-setosa           1.5          0.2           4.6          3.1      0.264575        False
+  5     Iris-setosa           1.4          0.2           5.0          3.6      0.244949        False
+  6     Iris-setosa           1.7          0.4           6.5          1.3      2.379075        False
+  7     Iris-setosa           1.4          0.3           4.6          3.4      0.331662        False
+  8     Iris-setosa           1.5          0.2           5.0          3.4      0.223607        False
+  9     Iris-setosa           4.7          3.2           4.4          2.9      1.428286        False
+ 10     Iris-setosa           1.5          0.1           4.9          3.1      0.264575        False
+ 11     Iris-setosa           1.5          0.2           5.4          3.7      0.331662        False
+ 12     Iris-setosa           1.6          0.2          33.8         45.4     35.906824         True
+ 13     Iris-setosa           1.4          0.1           4.8          3.0      0.264575        False
+ 14     Iris-setosa           1.1          0.1           2.1          5.5      3.284814        False
+ 15     Iris-setosa           1.2          0.2           1.2          5.6      4.055860        False
+ 16     Iris-setosa           1.5          0.4           5.7          4.4      0.830662        False
+ 17     Iris-setosa           4.1          1.7           5.4          3.9      1.024695        False
+ 18     Iris-setosa           1.4          0.3           5.1          3.5      0.173205        False
+ 19     Iris-setosa           1.7          0.3          25.0         11.7     19.958457        False
+ 20     Iris-setosa           1.5          0.3           5.1          3.8      0.264575        False
+ 21     Iris-setosa           1.7          0.2           5.4          3.4      0.360555        False
+ 22     Iris-setosa           1.5          0.4           5.1          3.7      0.264575        False
+ 23     Iris-setosa           1.0          0.2           4.6          3.6      0.565685        False
+ 24     Iris-setosa           1.7          0.5           5.1          3.3      0.387298        False
+ 25     Iris-setosa           1.9          0.2           4.8          3.4      0.479583        False
+ 26     Iris-setosa           1.6          0.2           5.0          3.0      0.300000        False
+ 27     Iris-setosa           5.3          2.5           5.0          3.4      1.224745        False
+ 28     Iris-setosa           1.5          0.2           5.2          3.5      0.223607        False
+ 29     Iris-setosa           1.4          0.2           5.2          3.4      0.223607        False
+ 30     Iris-setosa           1.6          0.2           4.7          3.2      0.264575        False
+ 31     Iris-setosa           1.6          0.2           4.8          3.1      0.223607        False
+ 32     Iris-setosa           1.5          0.4           5.4          3.4      0.316228        False
+ 33     Iris-setosa           1.5          0.1           5.2          4.1      0.424264        False
+ 34     Iris-setosa           1.4          0.2           5.5          4.2      0.547723        False
+ 35     Iris-setosa          75.5         54.1          12.4          6.3     56.112833         True
+ 36     Iris-setosa           1.2          0.2           5.0          3.2      0.346410        False
+ 37     Iris-setosa           1.3          0.2           5.5          3.5      0.346410        False
+ 38     Iris-setosa           4.9          3.0           4.9          3.1      1.081665        False
+ 39     Iris-setosa           1.3          0.2           4.4          3.0      0.424264        False
+ 40     Iris-setosa           1.5          0.2           5.1          3.4      0.173205        False
+ 41     Iris-setosa           1.3          0.3           5.0          3.5      0.244949        False
+ 42     Iris-setosa           1.3          0.3           4.5          2.3      0.836660        False
+ 43     Iris-setosa           1.3          0.2           4.4          3.2      0.316228        False
+ 44     Iris-setosa           1.6          0.6           5.0          3.5      0.424264        False
+ 45     Iris-setosa           1.9          0.4           5.1          3.8      0.479583        False
+ 46     Iris-setosa           1.4          0.3           4.8          3.0      0.264575        False
+ 47     Iris-setosa           1.6          0.2           5.1          3.8      0.300000        False
+ 48     Iris-setosa           1.4          0.2           4.6          3.2      0.223607        False
+ 49     Iris-setosa           1.5          0.2           5.3          3.7      0.244949        False
+ 50     Iris-setosa           1.4          0.2           5.0          3.3      0.223607        False
+ 51 Iris-versicolor           4.7          1.4           7.0          3.2      0.538516        False
+ 52 Iris-versicolor           4.5          1.5           6.4          3.2      0.412311        False
+ 53 Iris-versicolor           4.9          1.5           6.9          3.1      0.547723        False
+ 54 Iris-versicolor           4.0          1.3          23.7          1.5     16.328503        False
+ 55 Iris-versicolor           4.6          1.5           6.5          2.8      0.424264        False
+ 56 Iris-versicolor           4.5          1.3           5.7          2.8      0.331662        False
+ 57 Iris-versicolor           5.8          4.0           6.3          3.3      1.555635        False
+ 58 Iris-versicolor           3.3          1.0           4.9          2.4      0.721110        False
+ 59 Iris-versicolor           4.6          1.3          61.6         22.9     35.906824         True
+ 60 Iris-versicolor           3.9          1.4           5.2          2.7      0.547723        False
+ 61 Iris-versicolor           3.5          1.0           5.0          2.0      0.670820        False
+ 62 Iris-versicolor           4.2          1.5           5.9          3.0      0.387298        False
+ 63 Iris-versicolor           4.0          1.0           4.8          1.7      1.014889        False
+ 64 Iris-versicolor           4.7          1.4           6.1          2.9      0.435890        False
+ 65 Iris-versicolor          35.6          1.3          14.6          3.3     29.724737        False
+ 66 Iris-versicolor           4.4          1.4           6.7          3.1      0.387298        False
+ 67 Iris-versicolor           4.5          1.5           5.6          3.0      0.412311        False
+ 68 Iris-versicolor           5.8          3.5           5.8          2.7      1.334166        False
+ 69 Iris-versicolor           4.5          1.5           6.2          2.2      0.678233        False
+ 70 Iris-versicolor           3.9          1.1           5.6         29.5     25.439340        False
+ 71 Iris-versicolor           4.8          1.8           5.9          3.2      0.500000        False
+ 72 Iris-versicolor           4.0          1.3           6.1          2.8      0.435890        False
+ 73 Iris-versicolor           4.9          1.5           6.3          2.5      0.435890        False
+ 74 Iris-versicolor           4.7          1.2           6.1          2.8      0.458258        False
+ 75 Iris-versicolor           4.3          1.3           6.4          2.9      0.387298        False
+ 76 Iris-versicolor           4.4          1.4           6.6          3.0      0.316228        False
+ 77 Iris-versicolor          44.8          1.4          13.5          4.5     38.553599         True
+ 78 Iris-versicolor           5.0          1.7           6.7          3.0      0.424264        False
+ 79 Iris-versicolor           4.5          1.5           6.0          2.9      0.374166        False
+ 80 Iris-versicolor           3.5          1.0           5.7          2.6      0.624500        False
+ 81 Iris-versicolor           3.8          1.1           5.5          2.4      0.424264        False
+ 82 Iris-versicolor           3.7          1.0           5.5          2.4      0.509902        False
+ 83 Iris-versicolor           4.5          3.2           5.8          2.7      1.319091        False
+ 84 Iris-versicolor           5.1          1.6           6.0          2.7      0.374166        False
+ 85 Iris-versicolor           4.5          1.5           5.4          3.0      0.489898        False
+ 86 Iris-versicolor           4.5          1.6           6.0          3.4      0.519615        False
+ 87 Iris-versicolor           4.7          1.5           6.7          3.1      0.346410        False
+ 88 Iris-versicolor           4.4          1.3           6.3          2.3      0.616441        False
+ 89 Iris-versicolor           4.1          1.3           5.6          3.0      0.374166        False
+ 90 Iris-versicolor           4.0          1.3           5.5          2.5      0.387298        False
+ 91 Iris-versicolor           4.4          1.2           5.5          2.6      0.424264        False
+ 92 Iris-versicolor           5.4          2.4           6.1          3.0      0.509902        False
+ 93 Iris-versicolor           4.0          1.2           5.8          2.6      0.374166        False
+ 94 Iris-versicolor           3.3          1.0           5.0          2.3      0.648074        False
+ 95 Iris-versicolor           4.2          1.3           5.6          2.7      0.300000        False
+ 96 Iris-versicolor           4.2          1.2           6.0          1.3      1.276715        False
+ 97 Iris-versicolor           4.2          1.3           5.7          2.9      0.300000        False
+ 98 Iris-versicolor           4.3          1.3           6.2          2.9      0.387298        False
+ 99 Iris-versicolor           3.0          1.1           5.1          2.5      0.793725        False
+100 Iris-versicolor           5.0          3.5           5.7          2.8      1.224745        False
+101  Iris-virginica           6.0          2.5          62.3         21.3     37.652490         True
+102  Iris-virginica           5.1          1.9           5.8          2.7      0.360555        False
+103  Iris-virginica           5.9          2.1           7.1          3.0      0.500000        False
+104  Iris-virginica           5.6          1.8           6.3          2.9      0.424264        False
+105  Iris-virginica           5.8          2.2           6.5          3.0      0.387298        False
+106  Iris-virginica           6.6          2.1           2.9          1.5      3.203123        False
+107  Iris-virginica           4.5          1.7           4.9          2.5      0.877496        False
+108  Iris-virginica           6.3          1.8           7.3          2.9      0.608276        False
+109  Iris-virginica           5.8          1.8           6.7          2.5      0.616441        False
+110  Iris-virginica           5.1          3.5           7.2          3.6      1.400000        False
+111  Iris-virginica           5.1          2.0           6.5          3.2      0.424264        False
+112  Iris-virginica           5.3          1.9           6.4          2.7      0.387298        False
+113  Iris-virginica           5.5          2.1           6.8          3.0      0.374166        False
+114  Iris-virginica           5.0          2.0           5.7          2.5      0.583095        False
+115  Iris-virginica          58.1          2.4           6.2         17.9     53.458302         True
+116  Iris-virginica           5.3          2.3           6.4          3.2      0.387298        False
+117  Iris-virginica           5.5          1.8           6.5          3.0      0.387298        False
+118  Iris-virginica           6.7          2.2           7.7          3.8      1.122497        False
+119  Iris-virginica           6.9          2.3           7.7          2.6      0.927362        False
+120  Iris-virginica           5.0          1.5           6.0          2.2      0.655744        False
+121  Iris-virginica           5.7          2.3           6.9          3.2      0.300000        False
+122  Iris-virginica           4.2          1.2           5.6          2.8      0.300000        False
+123  Iris-virginica           6.7          2.0           7.7          2.8      0.700000        False
+124  Iris-virginica           4.9          1.8           6.3          2.7      0.374166        False
+125  Iris-virginica           5.7          2.1           6.7          3.3      0.374166        False
+126  Iris-virginica           6.0          1.8           7.2          3.2      0.648074        False
+127  Iris-virginica           4.8          1.8           6.2          2.8      0.435890        False
+128  Iris-virginica           4.9          1.8           6.1          3.0      0.360555        False
+129  Iris-virginica           5.6          2.1           6.4          2.8      0.374166        False
+130  Iris-virginica           6.5          2.1           7.2          3.0      0.616441        False
+131  Iris-virginica           6.1          1.9          70.4         24.8     42.273632         True
+132  Iris-virginica          68.4         66.0          10.5          2.8     66.314026         True
+133  Iris-virginica           5.6          2.2           6.4          2.8      0.435890        False
+134  Iris-virginica           5.1          1.5           6.3          2.8      0.435890        False
+135  Iris-virginica           5.6          1.4           6.1          2.6      0.583095        False
+136  Iris-virginica           6.1          2.3           7.7          3.0      0.700000        False
+137  Iris-virginica           5.6          2.4           6.3          3.4      0.500000        False
+138  Iris-virginica           2.1          2.2           6.4          3.1      2.165641        False
+139  Iris-virginica           4.8          1.8           7.0          4.0      1.009950        False
+140  Iris-virginica           5.4          2.1           6.9          3.1      0.374166        False
+141  Iris-virginica           5.6          2.4           6.7          3.1      0.346410        False
+142  Iris-virginica           5.1          2.3           6.9          3.1      0.509902        False
+143  Iris-virginica           5.1          1.9           5.8          2.7      0.360555        False
+144  Iris-virginica           5.9          2.3           6.8          3.2      0.346410        False
+145  Iris-virginica           5.7          2.5           6.7          3.3      0.400000        False
+146  Iris-virginica           5.2          2.3           6.7          3.0      0.374166        False
+147  Iris-virginica           5.6          1.2           6.3          2.5      0.734847        False
+148  Iris-virginica           5.2          2.0           6.5          3.0      0.360555        False
+149  Iris-virginica          70.4         65.3          40.1         41.7     76.310877         True
+150  Iris-virginica           5.1          1.8           5.9          3.0      0.360555        False
+
+Jumlah outlier: 10
+
 Data Outlier:
-      id            class  sepal_length  sepal_width  outlier
-1     12      Iris-setosa          33.8         45.4       -1
-5    101   Iris-virginica          62.3         21.3       -1
-92     2      Iris-setosa          40.9         30.0       -1
-142   19      Iris-setosa          25.0         11.7       -1
-146  131   Iris-virginica          70.4         24.8       -1
-147  149   Iris-virginica          40.1         41.7       -1
-148   70  Iris-versicolor           5.6         29.5       -1
-149   59  Iris-versicolor          61.6         22.9       -1
-
-Data yang sudah difilter:
-      id            class  sepal_length  sepal_width
-0      1      Iris-setosa           5.1          3.5
-2      3      Iris-setosa           4.7          3.2
-3     63  Iris-versicolor           4.8          1.7
-4    106   Iris-virginica           2.9          1.5
-6     32      Iris-setosa           5.4          3.4
-..   ...              ...           ...          ...
-140  132   Iris-virginica          10.5          2.8
-141  139   Iris-virginica           7.0          4.0
-143   35      Iris-setosa          12.4          6.3
-144   65  Iris-versicolor          14.6          3.3
-145   77  Iris-versicolor          13.5          4.5
-
-[142 rows x 4 columns]
-
-🔎 Analisis Outlier untuk Data MySQL:
-Data Outlier:
-      id            class  petal_length  petal_width  outlier
-0      1      Iris-setosa          55.4         65.2       -1
-1      2      Iris-setosa          14.0          2.0       -1
-34    35      Iris-setosa          75.5         54.1       -1
-64    65  Iris-versicolor          35.6          1.3       -1
-76    77  Iris-versicolor          44.8          1.4       -1
-114  115   Iris-virginica          58.1          2.4       -1
-131  132   Iris-virginica          68.4         66.0       -1
-148  149   Iris-virginica          70.4         65.3       -1
-
-Data yang sudah difilter:
-      id           class  petal_length  petal_width
-2      3     Iris-setosa           3.6          1.5
-3      4     Iris-setosa           1.5          0.2
-4      5     Iris-setosa           1.4          0.2
-5      6     Iris-setosa           1.7          0.4
-6      7     Iris-setosa           1.4          0.3
-..   ...             ...           ...          ...
-145  146  Iris-virginica           5.2          2.3
-146  147  Iris-virginica           5.6          1.2
-147  148  Iris-virginica           5.2          2.0
-149  150  Iris-virginica           5.1          1.8
-150  151             ???           5.1          3.2
-
-[143 rows x 4 columns]
-
-Data Gabungan Setelah Filtering:
-      id            class
-0      1      Iris-setosa
-1      3      Iris-setosa
-2     63  Iris-versicolor
-3    106   Iris-virginica
-4     32      Iris-setosa
-..   ...              ...
-280  146   Iris-virginica
-281  147   Iris-virginica
-282  148   Iris-virginica
-283  150   Iris-virginica
-284  151              ???
-
-[285 rows x 2 columns]
+ id           class  petal_length  petal_width  sepal_length  sepal_width  knn_distance  outlier_knn
+  1     Iris-setosa          55.4         65.2           5.1          3.5     64.495736         True
+ 12     Iris-setosa           1.6          0.2          33.8         45.4     35.906824         True
+ 35     Iris-setosa          75.5         54.1          12.4          6.3     56.112833         True
+ 59 Iris-versicolor           4.6          1.3          61.6         22.9     35.906824         True
+ 77 Iris-versicolor          44.8          1.4          13.5          4.5     38.553599         True
+101  Iris-virginica           6.0          2.5          62.3         21.3     37.652490         True
+115  Iris-virginica          58.1          2.4           6.2         17.9     53.458302         True
+131  Iris-virginica           6.1          1.9          70.4         24.8     42.273632         True
+132  Iris-virginica          68.4         66.0          10.5          2.8     66.314026         True
+149  Iris-virginica          70.4         65.3          40.1         41.7     76.310877         True
 </pre></div>
 </div>
+<img alt="_images/40f125592f3092d5ff05ae19fde987852432cb25f48f3406724a876a5f71e704.png" src="_images/40f125592f3092d5ff05ae19fde987852432cb25f48f3406724a876a5f71e704.png" />
+<img alt="_images/8b5e1b0436186fef551c989d9364e0997bc3dde513a1be7159a272c81e66f8a1.png" src="_images/8b5e1b0436186fef551c989d9364e0997bc3dde513a1be7159a272c81e66f8a1.png" />
 </div>
 </div>
 </section>
