@@ -396,51 +396,60 @@ document.write(`
 <h1><strong>Modelling Data</strong><a class="headerlink" href="#modelling-data" title="Link to this heading">#</a></h1>
 <p>Modelling data adalah proses dalam statistik untuk membuat representasi matematis dari suatu sistem atau fenomena berdasarkan data. Model ini digunakan untuk memahami pola, membuat prediksi, atau mengambil keputusan berdasarkan data.</p>
 <p><strong>Tahapan dalam Modelling Data</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Pengumpulan Data</strong></p></li>
+</ol>
 <ul class="simple">
-<li><p>Pengumpulan Data</p></li>
+<li><p>Mengambil data dari berbagai sumber (database, API, file CSV, dll.).Contoh: Mengambil data dari PostgreSQL &amp; MySQL dalam kode sebelumnya.</p></li>
 </ul>
-<p>Mengambil data dari berbagai sumber (database, API, file CSV, dll.).
-Contoh: Mengambil data dari PostgreSQL &amp; MySQL dalam kode sebelumnya.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Pembersihan Data (Data Cleaning)</strong></p></li>
+</ol>
 <ul class="simple">
-<li><p>Pembersihan Data (Data Cleaning)</p></li>
+<li><p>Menghapus outlier, data yang hilang (missing values), dan data duplikat.Contoh: Menggunakan Local Outlier Factor (LOF) untuk mendeteksi outlier.</p></li>
 </ul>
-<p>Menghapus outlier, data yang hilang (missing values), dan data duplikat.
-Contoh: Menggunakan Local Outlier Factor (LOF) untuk mendeteksi outlier.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Eksplorasi Data (Exploratory Data Analysis - EDA)</strong></p></li>
+</ol>
 <ul class="simple">
-<li><p>Eksplorasi Data (Exploratory Data Analysis - EDA)</p></li>
+<li><p>Menganalisis pola, korelasi antar fitur, dan distribusi data. Contoh: Visualisasi menggunakan Seaborn untuk melihat sebaran data.</p></li>
 </ul>
-<p>Menganalisis pola, korelasi antar fitur, dan distribusi data.
-Contoh: Visualisasi menggunakan Seaborn untuk melihat sebaran data.</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Pemilihan Fitur (Feature Selection/Engineering)</strong></p></li>
+</ol>
 <ul class="simple">
-<li><p>Pemilihan Fitur (Feature Selection/Engineering)</p></li>
+<li><p>Memilih fitur yang paling relevan dengan masalah.Contoh: Menggunakan “petal_length” dan “petal_width” untuk model klasifikasi bunga.</p></li>
 </ul>
-<p>Memilih fitur yang paling relevan dengan masalah.
-Contoh: Menggunakan “petal_length” dan “petal_width” untuk model klasifikasi bunga.</p>
+<ol class="arabic simple" start="5">
+<li><p><strong>Pembagian Data (Train-Test Split)</strong></p></li>
+</ol>
 <ul class="simple">
-<li><p>Pembagian Data (Train-Test Split)</p></li>
+<li><p>Membagi data menjadi Training Set (80%) dan Testing Set (20%). Contoh: train_test_split(X, y, test_size=0.2, random_state=42).</p></li>
 </ul>
-<p>Membagi data menjadi Training Set (80%) dan Testing Set (20%).
-Contoh: train_test_split(X, y, test_size=0.2, random_state=42).</p>
+<ol class="arabic simple" start="6">
+<li><p><strong>Pemilihan Model</strong></p></li>
+</ol>
 <ul class="simple">
-<li><p>Pemilihan Model</p></li>
+<li><p>Memilih algoritma yang sesuai: KNN, Decision Tree, SVM, Neural Networks,dll.Contoh: Menggunakan KNN (K-Nearest Neighbors) dengan n_neighbors=11.</p></li>
 </ul>
-<p>Memilih algoritma yang sesuai: KNN, Decision Tree, SVM, Neural Networks, dll.
-Contoh: Menggunakan KNN (K-Nearest Neighbors) dengan n_neighbors=11.</p>
+<ol class="arabic simple" start="7">
+<li><p><strong>Training Model (Pelatihan Model)</strong></p></li>
+</ol>
 <ul class="simple">
-<li><p>Training Model (Pelatihan Model)</p></li>
+<li><p>Model belajar dari Training Data untuk mengenali pola. Contoh: clf.fit(X_train, y_train).</p></li>
 </ul>
-<p>Model belajar dari Training Data untuk mengenali pola.
-Contoh: clf.fit(X_train, y_train).</p>
+<ol class="arabic simple" start="8">
+<li><p><strong>Evaluasi Model</strong></p></li>
+</ol>
 <ul class="simple">
-<li><p>Evaluasi Model</p></li>
+<li><p>Mengukur performa model menggunakan Akurasi, Precision, Recall, dan F1-score. Contoh: classification_report(y_test, y_pred).</p></li>
 </ul>
-<p>Mengukur performa model menggunakan Akurasi, Precision, Recall, dan F1-score.
-Contoh: classification_report(y_test, y_pred).</p>
+<ol class="arabic simple" start="9">
+<li><p><strong>Visualisasi Hasil &amp; Interpretasi</strong></p></li>
+</ol>
 <ul class="simple">
-<li><p>Visualisasi Hasil &amp; Interpretasi</p></li>
+<li><p>Menampilkan decision boundary untuk memahami batas klasifikasi model.Contoh: DecisionBoundaryDisplay.from_estimator().</p></li>
 </ul>
-<p>Menampilkan decision boundary untuk memahami batas klasifikasi model.
-Contoh: DecisionBoundaryDisplay.from_estimator().</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install pymysql
