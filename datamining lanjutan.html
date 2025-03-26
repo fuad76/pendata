@@ -890,7 +890,7 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<!-- <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tentukan jumlah tetangga untuk LOF</span>
 <span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">20</span>
@@ -901,7 +901,7 @@ document.write(`
 <span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier_lof&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
 </pre></div>
 </div>
-</div>
+</div> -->
 <!--<div class="cell_output docutils container">-->
 <!--<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>-->
 <!--<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)-->
@@ -996,31 +996,31 @@ document.write(`
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
-<!--  </div>-->
-<!--  <nav class="bd-toc-nav page-toc">-->
-<!--    <ul class="visible nav section-nav flex-column">-->
-<!--<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">OUTLIER DETEKSI</a><ul class="visible nav section-nav flex-column">-->
-<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-deteksi-outlier">Penjelasan Deteksi Outlier</a></li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-k-nearest-neighbors-knn">METODE K-NEAREST NEIGHBORS (KNN)</a><ul class="visible nav section-nav flex-column">-->
-<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-k-nearest-neighbors-knn-dalam-deteksi-outlier">Metode K-Nearest Neighbors (KNN) dalam deteksi outlier</a></li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#encludien-distance">Encludien Distance</a></li>-->
-<!--<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#berikut-ini-contoh-nya">Berikut ini contoh nya:</a><ul class="visible nav section-nav flex-column">-->
-<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-digunakan-untuk-menginstal-pymysql-dan-psycopg2-agar-dapat-berinteraksi-dengan-database-mysql-dan-postgresql">Perintah dibawah ini digunakan Untuk menginstal PyMysql dan psycopg2 agar dapat berinteraksi dengan database MySQL dan PostgreSQL</a></li>-->
-<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-untuk-menghitung-total-outlier">Perintah dibawah ini untuk menghitung total outlier</a></li>-->
-<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-mengurutkan-data-berdasarkan-jarak-dari-terkecil-ke-terbesar-beserta-hasilnya">Perintah dibawah ini mengurutkan data berdasarkan jarak dari terkecil ke terbesar beserta hasilnya</a></li>-->
+ </div>
+ <nav class="bd-toc-nav page-toc">
+<<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">OUTLIER DETEKSI</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-deteksi-outlier">Penjelasan Deteksi Outlier</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-k-nearest-neighbors-knn">METODE K-NEAREST NEIGHBORS (KNN)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-k-nearest-neighbors-knn-dalam-deteksi-outlier">Metode K-Nearest Neighbors (KNN) dalam deteksi outlier</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#encludien-distance">Encludien Distance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#berikut-ini-contoh-nya">Berikut ini contoh nya:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-digunakan-untuk-menginstal-pymysql-dan-psycopg2-agar-dapat-berinteraksi-dengan-database-mysql-dan-postgresql">Perintah dibawah ini digunakan Untuk menginstal PyMysql dan psycopg2 agar dapat berinteraksi dengan database MySQL dan PostgreSQL</a></li>
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-untuk-menghitung-total-outlier">Perintah dibawah ini untuk menghitung total outlier</a></li>
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-mengurutkan-data-berdasarkan-jarak-dari-terkecil-ke-terbesar-beserta-hasilnya">Perintah dibawah ini mengurutkan data berdasarkan jarak dari terkecil ke terbesar beserta hasilnya</a></li>
 <!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-lof">Apa LOF?</a></li>-->
 <!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagaimana-tahapan-lof">Bagaimana tahapan LOF?</a></li>-->
 <!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-manual-lof">Contoh manual LOF?</a></li>-->
-<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-s-color-untuk-contoh-data-saya-10-baris-2-fitur">Implementasi S Color untuk contoh data saya 10 baris 2 fitur</a></li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--</ul>-->
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-s-color-untuk-contoh-data-saya-10-baris-2-fitur">Implementasi S Color untuk contoh data saya 10 baris 2 fitur</a></li>
+</ul>
+</li>
+</ul>
 
-<!--  </nav></div>-->
+</nav></div>
 
 </div></div>
               
