@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>OUTLIER DETEKSI &#8212; My sample book</title>
+    <title>OUTLIER DETEKSI &#8212; Catatanku</title>
   
   
   
@@ -177,13 +177,17 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Halaman Awal
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="datamining.html">Data Understanding</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">OUTLIER DETEKSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamining.html">TUGAS 1</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="datamining lanjutan.html">TUGAS 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="KNN.html">Metode KNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOF.html">Metode LOF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Modellingdata.html">Modelling Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naivebayes.html">Metode Naive Bayes</a></li>
 
 
 
@@ -898,35 +902,35 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-5-fcc169bb0fc8&gt;</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Deteksi outlier menggunakan Local Outlier Factor (LOF)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">,</span> <span class="n">contamination</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">lof</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">data_values</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier_lof&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+<!--<div class="cell_output docutils container">-->
+<!--<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>-->
+<!--<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)-->
+<!--<span class="nn">&lt;ipython-input-5-fcc169bb0fc8&gt;</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>-->
+<!--<span class="g g-Whitespace">      </span><span class="mi">3</span> -->
+<!--<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Deteksi outlier menggunakan Local Outlier Factor (LOF)</span>-->
+<!--<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">,</span> <span class="n">contamination</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>-->
+<!--<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">lof</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">data_values</span><span class="p">)</span>-->
+<!--<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier_lof&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>-->
 
-<span class="ne">NameError</span>: name &#39;LocalOutlierFactor&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="apa-lof">
-<h2>Apa LOF?<a class="headerlink" href="#apa-lof" title="Link to this heading">#</a></h2>
-</section>
-<section id="bagaimana-tahapan-lof">
-<h2>Bagaimana tahapan LOF?<a class="headerlink" href="#bagaimana-tahapan-lof" title="Link to this heading">#</a></h2>
-</section>
-<section id="contoh-manual-lof">
-<h2>Contoh manual LOF?<a class="headerlink" href="#contoh-manual-lof" title="Link to this heading">#</a></h2>
-</section>
-<section id="implementasi-s-color-untuk-contoh-data-saya-10-baris-2-fitur">
-<h2>Implementasi S Color untuk contoh data saya 10 baris 2 fitur<a class="headerlink" href="#implementasi-s-color-untuk-contoh-data-saya-10-baris-2-fitur" title="Link to this heading">#</a></h2>
-<p>KKN</p>
-</section>
+<!--<span class="ne">NameError</span>: name &#39;LocalOutlierFactor&#39; is not defined-->
+<!--</pre></div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</section>-->
+<!--<section id="apa-lof">-->
+<!--<h2>Apa LOF?<a class="headerlink" href="#apa-lof" title="Link to this heading">#</a></h2>-->
+<!--</section>-->
+<!--<section id="bagaimana-tahapan-lof">-->
+<!--<h2>Bagaimana tahapan LOF?<a class="headerlink" href="#bagaimana-tahapan-lof" title="Link to this heading">#</a></h2>-->
+<!--</section>-->
+<!--<section id="contoh-manual-lof">-->
+<!--<h2>Contoh manual LOF?<a class="headerlink" href="#contoh-manual-lof" title="Link to this heading">#</a></h2>-->
+<!--</section>-->
+<!--<section id="implementasi-s-color-untuk-contoh-data-saya-10-baris-2-fitur">-->
+<!--<h2>Implementasi S Color untuk contoh data saya 10 baris 2 fitur<a class="headerlink" href="#implementasi-s-color-untuk-contoh-data-saya-10-baris-2-fitur" title="Link to this heading">#</a></h2>-->
+<!--<p>KKN</p>-->
+<!--</section>-->
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -967,7 +971,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Data Understanding</p>
+        <p class="prev-next-title">TUGAS 1</p>
       </div>
     </a>
     <a class="right-next"
@@ -975,7 +979,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>KNN (K-Nearest Neighbors)</strong></p>
+        <p class="prev-next-title">KNN (K-Nearest Neighbors)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -992,31 +996,31 @@ document.write(`
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">OUTLIER DETEKSI</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-deteksi-outlier">Penjelasan Deteksi Outlier</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-k-nearest-neighbors-knn">METODE K-NEAREST NEIGHBORS (KNN)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-k-nearest-neighbors-knn-dalam-deteksi-outlier">Metode K-Nearest Neighbors (KNN) dalam deteksi outlier</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#encludien-distance">Encludien Distance</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#berikut-ini-contoh-nya">Berikut ini contoh nya:</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-digunakan-untuk-menginstal-pymysql-dan-psycopg2-agar-dapat-berinteraksi-dengan-database-mysql-dan-postgresql">Perintah dibawah ini digunakan Untuk menginstal PyMysql dan psycopg2 agar dapat berinteraksi dengan database MySQL dan PostgreSQL</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-untuk-menghitung-total-outlier">Perintah dibawah ini untuk menghitung total outlier</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-mengurutkan-data-berdasarkan-jarak-dari-terkecil-ke-terbesar-beserta-hasilnya">Perintah dibawah ini mengurutkan data berdasarkan jarak dari terkecil ke terbesar beserta hasilnya</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-lof">Apa LOF?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagaimana-tahapan-lof">Bagaimana tahapan LOF?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-manual-lof">Contoh manual LOF?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-s-color-untuk-contoh-data-saya-10-baris-2-fitur">Implementasi S Color untuk contoh data saya 10 baris 2 fitur</a></li>
-</ul>
-</li>
-</ul>
+<!--  </div>-->
+<!--  <nav class="bd-toc-nav page-toc">-->
+<!--    <ul class="visible nav section-nav flex-column">-->
+<!--<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">OUTLIER DETEKSI</a><ul class="visible nav section-nav flex-column">-->
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-deteksi-outlier">Penjelasan Deteksi Outlier</a></li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-k-nearest-neighbors-knn">METODE K-NEAREST NEIGHBORS (KNN)</a><ul class="visible nav section-nav flex-column">-->
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-k-nearest-neighbors-knn-dalam-deteksi-outlier">Metode K-Nearest Neighbors (KNN) dalam deteksi outlier</a></li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#encludien-distance">Encludien Distance</a></li>-->
+<!--<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#berikut-ini-contoh-nya">Berikut ini contoh nya:</a><ul class="visible nav section-nav flex-column">-->
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-digunakan-untuk-menginstal-pymysql-dan-psycopg2-agar-dapat-berinteraksi-dengan-database-mysql-dan-postgresql">Perintah dibawah ini digunakan Untuk menginstal PyMysql dan psycopg2 agar dapat berinteraksi dengan database MySQL dan PostgreSQL</a></li>-->
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-untuk-menghitung-total-outlier">Perintah dibawah ini untuk menghitung total outlier</a></li>-->
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perintah-dibawah-ini-mengurutkan-data-berdasarkan-jarak-dari-terkecil-ke-terbesar-beserta-hasilnya">Perintah dibawah ini mengurutkan data berdasarkan jarak dari terkecil ke terbesar beserta hasilnya</a></li>-->
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-lof">Apa LOF?</a></li>-->
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagaimana-tahapan-lof">Bagaimana tahapan LOF?</a></li>-->
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-manual-lof">Contoh manual LOF?</a></li>-->
+<!--<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-s-color-untuk-contoh-data-saya-10-baris-2-fitur">Implementasi S Color untuk contoh data saya 10 baris 2 fitur</a></li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
 
-  </nav></div>
+<!--  </nav></div>-->
 
 </div></div>
               
@@ -1029,7 +1033,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By The syauqi.fuu_
 </p>
 
   </div>
@@ -1039,7 +1043,7 @@ By The Jupyter Book Community
 
   <p class="copyright">
     
-      © Copyright 2023.
+      Â© Copyright 2025.
       <br/>
     
   </p>
