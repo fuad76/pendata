@@ -24,6 +24,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from sklearn.neighbors import LocalOutlierFactor
 
 def get_pg_data():
     conn = psycopg2.connect(
@@ -36,7 +37,7 @@ def get_pg_data():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM mad")
     data = cursor.fetchall()
-    columns = [desc[0] for desc in cursor.description]  # Ambil nama kolom
+    columns = [desc[0] for desc in cursor.description]
     cursor.close()
     conn.close()
 
@@ -53,7 +54,7 @@ def get_mysql_data():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM ayam")
     data = cursor.fetchall()
-    columns = [desc[0] for desc in cursor.description]  # Ambil nama kolom
+    columns = [desc[0] for desc in cursor.description]
     cursor.close()
     conn.close()
 
@@ -66,26 +67,48 @@ df_mysql = get_mysql_data()
 # Gabungkan berdasarkan kolom 'id' dan 'Class'
 df_merged = pd.merge(df_mysql, df_postgresql, on=["id", "class"], how="inner")
 
-# Cetak semua data hasil gabungan tanpa indeks
-print(df_merged.to_string(index=False))
+# Pastikan ada kolom numerik untuk LOF
+numeric_columns = df_merged.select_dtypes(include=[np.number]).columns
+
+if len(numeric_columns) > 0:
+    # Terapkan LOF
+    lof = LocalOutlierFactor(n_neighbors=20)
+    df_merged['LOF_Score'] = lof.fit_predict(df_merged[numeric_columns])
+
+    # Pisahkan data outlier dan data normal
+    df_outliers = df_merged[df_merged['LOF_Score'] == -1]
+    df_normal = df_merged[df_merged['LOF_Score'] == 1]
+
+    # Tampilkan jumlah outlier
+    print(f"Jumlah data yang terindikasi outlier: {len(df_outliers)}\n")
+
+    # Tampilkan data outlier
+    if not df_outliers.empty:
+        print("Data yang terdeteksi sebagai outlier:")
+        print(df_outliers.to_string(index=False))
+    else:
+        print("Tidak ada outlier yang terdeteksi.")
+else:
+    print("Tidak ada kolom numerik untuk LOF.")
+
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mOperationalError[0m                          Traceback (most recent call last)
-[0;32m<ipython-input-2-3b856047830a>[0m in [0;36m<cell line: 0>[0;34m()[0m
-[1;32m     41[0m [0;34m[0m[0m
-[1;32m     42[0m [0;31m# Ambil data dari kedua database[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 43[0;31m [0mdf_postgresql[0m [0;34m=[0m [0mget_pg_data[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     44[0m [0mdf_mysql[0m [0;34m=[0m [0mget_mysql_data[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     45[0m [0;34m[0m[0m
+[0;32m<ipython-input-3-854f9fdddbcc>[0m in [0;36m<cell line: 0>[0;34m()[0m
+[1;32m     42[0m [0;34m[0m[0m
+[1;32m     43[0m [0;31m# Ambil data dari kedua database[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 44[0;31m [0mdf_postgresql[0m [0;34m=[0m [0mget_pg_data[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     45[0m [0mdf_mysql[0m [0;34m=[0m [0mget_mysql_data[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     46[0m [0;34m[0m[0m
 
-[0;32m<ipython-input-2-3b856047830a>[0m in [0;36mget_pg_data[0;34m()[0m
-[1;32m      7[0m [0;34m[0m[0m
-[1;32m      8[0m [0;32mdef[0m [0mget_pg_data[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 9[0;31m     conn = psycopg2.connect(
-[0m[1;32m     10[0m         [0mhost[0m[0;34m=[0m[0;34m"pg-e0bfcfb-syauqifuady76-9d72.k.aivencloud.com"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     11[0m         [0muser[0m[0;34m=[0m[0;34m"avnadmin"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-3-854f9fdddbcc>[0m in [0;36mget_pg_data[0;34m()[0m
+[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0;32mdef[0m [0mget_pg_data[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 10[0;31m     conn = psycopg2.connect(
+[0m[1;32m     11[0m         [0mhost[0m[0;34m=[0m[0;34m"pg-e0bfcfb-syauqifuady76-9d72.k.aivencloud.com"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m         [0muser[0m[0;34m=[0m[0;34m"avnadmin"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
 
 [0;32m/usr/local/lib/python3.11/dist-packages/psycopg2/__init__.py[0m in [0;36mconnect[0;34m(dsn, connection_factory, cursor_factory, **kwargs)[0m
 [1;32m    120[0m [0;34m[0m[0m
