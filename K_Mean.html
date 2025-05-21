@@ -383,7 +383,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-metode-k-mean"><strong>Pengertian Metode K-Mean</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-claustering"><strong>Manfaat <em>Claustering</em></strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-clastering"><strong>Manfaat <em>Clastering</em></strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inertia-sum-square-error-sse"><strong>Inertia (Sum Square error/SSE)</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-analysis"><strong>Silhouette Analysis</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-preprocessing"><strong>Normalisasi Preprocessing</strong></a></li>
@@ -420,8 +420,8 @@ document.write(`
 digunakan untuk mengelompokkan suatu data yang memiliki kesamaan antara satu data dengan data yang lainnya. namun dalam prosesnya dan Untuk menunjang keberhasilan proses analisis data, maka diperlukan juga penerapan suatu algoritma. Adapun algoritma yang digunakan pada bab ini yaitu Algoritma K-Mean.</p>
 <p><em>K-Means Clustering</em>  adalah teknik pengelompokan data yang memisahkan data ke dalam cluster, mengelompokkan data dengan fitur yang sama bersama-sama dan mengelompokkan data dengan karakteristik yang berbeda ke dalam kelompok yang berbeda dengan centroid sebagai acuannya. Metode k-means membagi data menjadi beberapa kelompok sehingga data dengan karakteristik yang sama berada pada cluster yang sama dan data dengan karakteristik yang berbeda berada pada cluster yang berbeda</p>
 </section>
-<section id="manfaat-claustering">
-<h2><strong>Manfaat <em>Claustering</em></strong><a class="headerlink" href="#manfaat-claustering" title="Link to this heading">#</a></h2>
+<section id="manfaat-clastering">
+<h2><strong>Manfaat <em>Clastering</em></strong><a class="headerlink" href="#manfaat-clastering" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Clustering merupakan metode segmentasi data yang sangat berguna dalam prediksi dan analisa masalah bisnis tertentu. Misalnya Segmentasi pasar, marketing dan pemetaan zonasi wilayah.</p></li>
 <li><p>Identifikasi obyek dalam bidang berbagai bidang seperti computer vision dan image processing.</p></li>
@@ -520,16 +520,7 @@ Menggabungkan atau mengubah fitur asli menjadi fitur baru berdimensi lebih renda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pymysql
-  Downloading PyMySQL-1.1.1-py3-none-any.whl.metadata (4.4 kB)
-Downloading PyMySQL-1.1.1-py3-none-any.whl (44 kB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/45.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">45.0/45.0 kB</span> <span class=" -Color -Color-Red">1.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pymysql
-Successfully installed pymysql-1.1.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pymysql in /usr/local/lib/python3.11/dist-packages (1.1.1)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: psycopg2 in /usr/local/lib/python3.11/dist-packages (2.9.10)
@@ -547,7 +538,9 @@ Successfully installed pymysql-1.1.1
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_pg_data</span><span class="p">():</span>
     <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
@@ -960,18 +953,8 @@ Centroids:
 Akurasi (Adjusted Rand Score): 0.000
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-6-9d2395814197&gt;</span> in <span class="ni">&lt;cell line: 0&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">labels_k2</span><span class="p">,</span> <span class="n">centroids_k2</span><span class="p">,</span> <span class="n">accuracy_k2</span> <span class="o">=</span> <span class="n">perform_kmeans</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
-
-<span class="ne">NameError</span>: name &#39;PCA&#39; is not defined
-</pre></div>
-</div>
+<img alt="_images/e20c6609e85c4f4a6f72d1cc62554640368fbefccb3cc6fca6dc2ef733ce0aac.png" src="_images/e20c6609e85c4f4a6f72d1cc62554640368fbefccb3cc6fca6dc2ef733ce0aac.png" />
+<img alt="_images/398f6bbcc6c24312cdd7d69fa6cf70385b0d2cbbbf2762a6fc6ff06ca49fda61.png" src="_images/398f6bbcc6c24312cdd7d69fa6cf70385b0d2cbbbf2762a6fc6ff06ca49fda61.png" />
 </div>
 </div>
 </section>
@@ -1811,7 +1794,7 @@ Silhouette Score untuk 4 klaster: 0.876
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-metode-k-mean"><strong>Pengertian Metode K-Mean</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-claustering"><strong>Manfaat <em>Claustering</em></strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-clastering"><strong>Manfaat <em>Clastering</em></strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inertia-sum-square-error-sse"><strong>Inertia (Sum Square error/SSE)</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-analysis"><strong>Silhouette Analysis</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-preprocessing"><strong>Normalisasi Preprocessing</strong></a></li>
