@@ -1,0 +1,78 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#Visualisasi hasilnya 2 Dimensi menggunakan PC A
+
+labels_k2, centroids_k2, accuracy_k2 = perform_kmeans(X_scaled, y, 2)
+
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_scaled)
+
+plt.figure(figsize=(8, 6))
+scatter = plt.scatter(X_pca[:, 0], X_pca[:, 1], c=labels_k2, cmap='viridis', s=80, edgecolors='k')
+plt.title("Visualisasi Clustering K-Means (k=2) dengan PCA")
+plt.xlabel("PCA Component 1")
+plt.ylabel("PCA Component 2")
+plt.grid(True)
+plt.colorbar(scatter, label='Cluster Label')
+plt.tight_layout()
+plt.show()
+
+#Visualisasi hasilnya 3 Dimensi menggunakan PC A
+
+pca_3d = PCA(n_components=3)
+X_pca_3d = pca_3d.fit_transform(X_scaled)
+
+# 2. Plot hasil clustering dalam 3D
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+scatter = ax.scatter(X_pca_3d[:, 0], X_pca_3d[:, 1], X_pca_3d[:, 2],
+                     c=labels_k2, cmap='viridis', s=60, edgecolors='k')
+
+ax.set_title("Visualisasi Clustering K-Means (k=2) dalam 3D (PCA)")
+ax.set_xlabel("PCA Component 1")
+ax.set_ylabel("PCA Component 2")
+ax.set_zlabel("PCA Component 3")
+
+fig.colorbar(scatter, ax=ax, label='Cluster Label')
+plt.tight_layout()
+plt.show()
+------------------
+
+----- stdout -----
+
+Hasil K-Means dengan 2 Klaster:
+Centroids:
+[[0.05125494 0.01907207 0.09498971 0.06734383]
+ [0.89161074 0.9491654  0.22868497 0.27834467]]
+Akurasi (Adjusted Rand Score): 0.000
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-9d2395814197>[0m in [0;36m<cell line: 0>[0;34m()[0m
+[1;32m      3[0m [0mlabels_k2[0m[0;34m,[0m [0mcentroids_k2[0m[0;34m,[0m [0maccuracy_k2[0m [0;34m=[0m [0mperform_kmeans[0m[0;34m([0m[0mX_scaled[0m[0;34m,[0m [0my[0m[0;34m,[0m [0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0mpca[0m [0;34m=[0m [0mPCA[0m[0;34m([0m[0mn_components[0m[0;34m=[0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mX_pca[0m [0;34m=[0m [0mpca[0m[0;34m.[0m[0mfit_transform[0m[0;34m([0m[0mX_scaled[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'PCA' is not defined
+
