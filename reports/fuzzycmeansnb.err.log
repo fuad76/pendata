@@ -1,0 +1,57 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.11/dist-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Load dataset Iris
+iris = load_iris()
+X = iris.data
+n, d = X.shape
+k = 3              # jumlah cluster
+m = 2              # derajat fuzziness
+np.random.seed(42)
+
+# Inisialisasi keanggotaan U (acak) - bentuk (150, 3)
+U = np.random.dirichlet(np.ones(k), size=n)
+
+# # Tambahkan ID ke data dan pindahkan ke kolom paling kiri
+# df = pd.DataFrame(X, columns=iris.feature_names)
+# df.insert(0, "id", df.index + 1)  # ID dimulai dari 1
+# print("=== DATASET ===")
+# print(df.to_string(index=False))
+
+# Tambahkan ID ke matriks keanggotaan dan pindahkan ke kolom paling kiri
+df_U = pd.DataFrame(U, columns=[f"Cluster_{i+1}" for i in range(k)])
+df_U.insert(0, "id", df.index + 1)  # ID dimulai dari 1
+print("\n=== Matriks Keanggotaan Awal (U) ===")
+print(df_U.to_string(index=False))
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-91697aa682f3>[0m in [0;36m<cell line: 0>[0;34m()[0m
+[1;32m     18[0m [0;31m# Tambahkan ID ke matriks keanggotaan dan pindahkan ke kolom paling kiri[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     19[0m [0mdf_U[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0mU[0m[0;34m,[0m [0mcolumns[0m[0;34m=[0m[0;34m[[0m[0;34mf"Cluster_{i+1}"[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mk[0m[0;34m)[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 20[0;31m [0mdf_U[0m[0;34m.[0m[0minsert[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0;34m"id"[0m[0;34m,[0m [0mdf[0m[0;34m.[0m[0mindex[0m [0;34m+[0m [0;36m1[0m[0;34m)[0m  [0;31m# ID dimulai dari 1[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     21[0m [0mprint[0m[0;34m([0m[0;34m"\n=== Matriks Keanggotaan Awal (U) ==="[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     22[0m [0mprint[0m[0;34m([0m[0mdf_U[0m[0;34m.[0m[0mto_string[0m[0;34m([0m[0mindex[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'df' is not defined
+
