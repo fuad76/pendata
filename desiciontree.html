@@ -1,0 +1,1257 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Desicion Tree &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'desiciontree';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Selamat datang Di catatan Penambangan Data
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="datamining.html">Data Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UTSPendataE.html"><strong>Mengistall Pandas terlebih dahulu</strong></a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdesiciontree.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/desiciontree.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Desicion Tree</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengumpulkan-data"><strong>Mengumpulkan data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-manual-menggunakan-information-gain-untuk-klasifikasi"><strong>Menghitung Manual menggunakan Information gain untuk Klasifikasi</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inisialisasi-data-berdasarkan-kelas"><strong>Inisialisasi data berdasarkan kelas</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-entropi-awal-s"><strong>Menghitung Entropi Awal (S)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-1-tinggi-tanaman"><strong>Fitur 1 (Tinggi Tanaman)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-threshold"><strong>Ambil Threshold</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-information-gain"><strong>Hitung Information gain</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-gini-index"><strong>Hitung Gini Index</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-2-diameter-daun"><strong>Fitur 2 (Diameter daun)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Ambil Threshold</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-entropi"><strong>Hitung Entropi</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Hitung Information gain</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gini-index"><strong>Gini Index</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-perbandingan"><strong>Kesimpulan Perbandingan</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-menggunakan-desiciontree"><strong>Visualisasi menggunakan DesicionTree</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-splitting-predict"><strong>Visualisasi Splitting Predict</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setelah-dimasukkan-2-data-baru"><strong>Setelah dimasukkan 2 data baru</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-decisiontree-dalam-bentuk-gambar"><strong>Visualisasi DecisionTree dalam bentuk gambar</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-rule-rule"><strong>Menampilkan Rule-rule</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="desicion-tree">
+<h1><strong>Desicion Tree</strong><a class="headerlink" href="#desicion-tree" title="Link to this heading">#</a></h1>
+<section id="mengumpulkan-data">
+<h2><strong>Mengumpulkan data</strong><a class="headerlink" href="#mengumpulkan-data" title="Link to this heading">#</a></h2>
+<p>data yang digunakan untuk menghitung information gain berupa genus Solanum, yang mencakup berbagai spesies seperti tomat dan terong. dengan fitur 2 yaitu tinggi tanaman(cm) dan diameter daun(cm).</p>
+<p>berikut tabel dataset:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Spesies</p></th>
+<th class="head"><p>Tinggi Tanaman (cm)</p></th>
+<th class="head"><p>Diameter Daun (cm)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Solanum lycopersicum (Tomat)</p></td>
+<td><p>80</p></td>
+<td><p>12.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Solanum lycopersicum (Tomat)</p></td>
+<td><p>85</p></td>
+<td><p>11.5</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Solanum lycopersicum (Tomat)</p></td>
+<td><p>78</p></td>
+<td><p>12.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Solanum lycopersicum (Tomat)</p></td>
+<td><p>82</p></td>
+<td><p>12.1</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Solanum lycopersicum (Tomat)</p></td>
+<td><p>79</p></td>
+<td><p>11.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Solanum melongena (Terong)</p></td>
+<td><p>60</p></td>
+<td><p>8.5</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Solanum melongena (Terong)</p></td>
+<td><p>62</p></td>
+<td><p>9.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Solanum melongena (Terong)</p></td>
+<td><p>65</p></td>
+<td><p>8.8</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Solanum melongena (Terong)</p></td>
+<td><p>61</p></td>
+<td><p>8.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Solanum melongena (Terong)</p></td>
+<td><p>63</p></td>
+<td><p>8.9</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Solanum lycopersicum (Tomat)</p></td>
+<td><p>81</p></td>
+<td><p>12.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Solanum melongena (Terong)</p></td>
+<td><p>64</p></td>
+<td><p>9.1</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Solanum lycopersicum (Tomat)</p></td>
+<td><p>83</p></td>
+<td><p>11.7</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Solanum melongena (Terong)</p></td>
+<td><p>66</p></td>
+<td><p>8.7</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Solanum lycopersicum (Tomat)</p></td>
+<td><p>80</p></td>
+<td><p>12.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="menghitung-manual-menggunakan-information-gain-untuk-klasifikasi">
+<h2><strong>Menghitung Manual menggunakan Information gain untuk Klasifikasi</strong><a class="headerlink" href="#menghitung-manual-menggunakan-information-gain-untuk-klasifikasi" title="Link to this heading">#</a></h2>
+<section id="inisialisasi-data-berdasarkan-kelas">
+<h3><strong>Inisialisasi data berdasarkan kelas</strong><a class="headerlink" href="#inisialisasi-data-berdasarkan-kelas" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Total data: 15 \</p></li>
+<li><p>solanum lycopersicum (Tomat (0)): 8 data \</p></li>
+<li><p>Solanum melongena (Terong (1)): 7 data</p></li>
+</ul>
+</section>
+<section id="menghitung-entropi-awal-s">
+<h3><strong>Menghitung Entropi Awal (S)</strong><a class="headerlink" href="#menghitung-entropi-awal-s" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+Entropy(D) = -p_1 \log_2(p_1) - p_2 \log_2(p_2)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+p_1 = \frac{8}{15},\quad p_2 = \frac{7}{15}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Entropy(D) = -\frac{8}{15} \log_2 \frac{8}{15} - \frac{7}{15} \log_2 \frac{7}{15} \approx 0.996
+\]</div>
+</section>
+<section id="fitur-1-tinggi-tanaman">
+<h3><strong>Fitur 1 (Tinggi Tanaman)</strong><a class="headerlink" href="#fitur-1-tinggi-tanaman" title="Link to this heading">#</a></h3>
+<p>Data Tinggi tanaman (dengan label,Urutan Terendah-Tertinggi)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Tinggi</p></th>
+<th class="head"><p>Label</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>60</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>61</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>62</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>63</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>64</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>65</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>66</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>78</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>79</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>80</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>80</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>81</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>82</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>83</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>85</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ambil-threshold">
+<h3><strong>Ambil Threshold</strong><a class="headerlink" href="#ambil-threshold" title="Link to this heading">#</a></h3>
+<p><strong>Threshold</strong>: 70 cm \
+<strong>Split</strong>:</p>
+<ul class="simple">
+<li><p><em>Left</em> (≤70): No 6–14 → 7 data → semua kelas 1 (Terong)</p></li>
+<li><p><em>Right</em> (&gt;70): No 1–11 → 8 data → semua kelas 0 (Tomat)</p></li>
+</ul>
+<p>###<strong>Hitung Entropi</strong></p>
+<ul class="simple">
+<li><p><strong>Entropi Left</strong></p></li>
+<li><p>Semua data kelas 0(Tomat),probabilitas:
+$<span class="math notranslate nohighlight">\(
+p_{\text{Tomat}} = 0 , p_{\text{Terong}} = 1
+\)</span>$</p></li>
+</ul>
+<p>Maka:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Entropi(Left)} = - \left(1 \cdot \log_2 1 + 0 \cdot \log_2 0\right) = 0
+\]</div>
+<ul class="simple">
+<li><p><strong>Entropi Right</strong></p></li>
+<li><p>Semua data kelas 0(Tomat),Probabilitas:
+$<span class="math notranslate nohighlight">\(
+p_{\text{Tomat}} = 1 , p_{\text{Terong}} = 0
+\)</span><span class="math notranslate nohighlight">\(
+Maka:
+\)</span><span class="math notranslate nohighlight">\(
+\text{Entropi(Right)} = - \left(1 \cdot \log_2 1 + 0 \cdot \log_2 0\right) = 0
+\)</span>$</p></li>
+<li><p><strong>Entropi Setelah Split</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Entropi}_{\text{split}} = \frac{7}{15} \cdot 0 + \frac{8}{15} \cdot 0 = 0
+\]</div>
+</section>
+<section id="hitung-information-gain">
+<h3><strong>Hitung Information gain</strong><a class="headerlink" href="#hitung-information-gain" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+IG = \text{Entropi}(S) - \left( \frac{7}{15} \cdot 0 + \frac{8}{15} \cdot 0 \right) = 0.996
+\]</div>
+</section>
+<section id="hitung-gini-index">
+<h3><strong>Hitung Gini Index</strong><a class="headerlink" href="#hitung-gini-index" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Gini index sebelum split</strong>
+$<span class="math notranslate nohighlight">\(
+p_0 = \frac{8}{15}, \quad p_1 = \frac{7}{15}
+\)</span>$</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Gini}(D) = 1 - \left( \frac{7}{15} \right)^2 - \left( \frac{8}{15} \right)^2
+= 1 - \frac{49}{225} - \frac{64}{225}
+= 1 - \frac{113}{225} \approx 0.498
+\]</div>
+<ul class="simple">
+<li><p><strong>Gini index setelah split</strong></p></li>
+<li><p><em>Left</em>: semua kelas terong (Gini) : 0</p></li>
+<li><p><em>Right</em>: Semua kelas tomat (Gini) : 0
+$<span class="math notranslate nohighlight">\(
+\text{Gini}_{\text{split}} = \frac{7}{15} \cdot 0 + \frac{8}{15} \cdot 0 = 0
+\)</span>$</p></li>
+</ul>
+<p><strong>Hasil Sementara dari fitur 1:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Evaluasi</p></th>
+<th class="head"><p>Nilai</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Threshold</p></td>
+<td><p>70 cm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Entropi</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Information gain</p></td>
+<td><p>0.996</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gini index</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="fitur-2-diameter-daun">
+<h3><strong>Fitur 2 (Diameter daun)</strong><a class="headerlink" href="#fitur-2-diameter-daun" title="Link to this heading">#</a></h3>
+<p>Data Diameter daun (dengan label,Urutan Terendah-Tertinggi)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Diameter</p></th>
+<th class="head"><p>Kelas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>9.5</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>9.6</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>9.7</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>9.8</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>10.0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>10.1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>10.2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>11.0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>11.1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>11.2</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>10.9</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>11.5</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>11.8</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>12.1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>12.3</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id1">
+<h3><strong>Ambil Threshold</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Threshold</strong>: 10.5 cm \
+<strong>Split</strong>:</p>
+<ul class="simple">
+<li><p><em>Left</em> (≤10.5): No 6-14 → 7 data → semua kelas 1 (Terong)</p></li>
+<li><p><em>Right</em> (&gt;10.5): No 13-11 → 8 data → semua kelas 0 (Tomat)</p></li>
+</ul>
+</section>
+<section id="hitung-entropi">
+<h3><strong>Hitung Entropi</strong><a class="headerlink" href="#hitung-entropi" title="Link to this heading">#</a></h3>
+<p>Karena distribusinya identik dengan fitur tinggi tanaman, maka:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Entropi(Left)} = 0, \quad \text{Entropi(Right)} = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{Entropi}_{\text{split}} = \frac{7}{15} \cdot 0 + \frac{8}{15} \cdot 0 = 0
+\]</div>
+</section>
+<section id="id2">
+<h3><strong>Hitung Information gain</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+IG = \text{Entropi}(S) - \left( \frac{8}{15} \cdot 0 + \frac{7}{15} \cdot 0 \right) = 0.996
+\]</div>
+</section>
+<section id="gini-index">
+<h3><strong>Gini Index</strong><a class="headerlink" href="#gini-index" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Gini index sebelum split</strong>
+$<span class="math notranslate nohighlight">\(
+p_0 = \frac{8}{15}, \quad p_1 = \frac{7}{15}
+\)</span>$</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\text{Gini}(D) = 1 - \left( \frac{8}{15} \right)^2 - \left( \frac{7}{15} \right)^2
+= 1 - \frac{64}{225} - \frac{49}{225}
+= 1 - \frac{113}{225} \approx 0.498
+\]</div>
+<ul class="simple">
+<li><p><strong>Gini index setelah split</strong></p></li>
+<li><p><em>Left</em>: semua kelas terong (Gini) : 0</p></li>
+<li><p><em>Right</em>: Semua kelas tomat (Gini) : 0
+$<span class="math notranslate nohighlight">\(
+\text{Gini}_{\text{split}} = \frac{8}{15} \cdot 0 + \frac{7}{15} \cdot 0 = 0
+\)</span>$</p></li>
+</ul>
+<p><strong>Hasil Sementara dari fitur 2:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Evaluasi</p></th>
+<th class="head"><p>Nilai</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Threshold</p></td>
+<td><p>10.5 cm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Entropi</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Information gain</p></td>
+<td><p>0.996</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gini index</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="kesimpulan-perbandingan">
+<h3><strong>Kesimpulan Perbandingan</strong><a class="headerlink" href="#kesimpulan-perbandingan" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Fitur</p></th>
+<th class="head"><p>Threshold</p></th>
+<th class="head"><p>IG</p></th>
+<th class="head"><p>Gini Split</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tinggi Tanaman</p></td>
+<td><p>70 cm</p></td>
+<td><p>0.996</p></td>
+<td><p>0.000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Diameter Daun</p></td>
+<td><p>10.5 cm</p></td>
+<td><p>0.996</p></td>
+<td><p>0.000</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Kedua fitur, yaitu Tinggi Tanaman dan Diameter Daun, mampu memisahkan kelas secara sempurna pada threshold yang dipilih, sehingga nilai entropi dan Gini Index setelah split menjadi minimum, yaitu 0. Information Gain yang dihasilkan mencapai nilai maksimum sebesar 0.996. Dalam praktiknya, karena kedua fitur memberikan performa klasifikasi yang setara, salah satu dari keduanya dapat dipilih sebagai akar (root) pada pohon keputusan.</p>
+</section>
+</section>
+<section id="visualisasi-menggunakan-desiciontree">
+<h2><strong>Visualisasi menggunakan DesicionTree</strong><a class="headerlink" href="#visualisasi-menggunakan-desiciontree" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">plot_tree</span><span class="p">,</span> <span class="n">export_text</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">ListedColormap</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_text</span>
+
+<span class="c1"># === Data ===</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Tinggi Tanaman (cm)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">75</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">76</span><span class="p">],</span>
+    <span class="s2">&quot;Diameter Daun (cm)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">11.2</span><span class="p">,</span> <span class="mf">12.1</span><span class="p">,</span> <span class="mf">10.9</span><span class="p">,</span> <span class="mf">11.5</span><span class="p">,</span> <span class="mf">11.8</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">9.8</span><span class="p">,</span> <span class="mf">9.6</span><span class="p">,</span> <span class="mf">12.3</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="mf">11.1</span><span class="p">],</span>
+    <span class="s2">&quot;Kelas&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Solanum lycopersicum&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum lycopersicum&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum lycopersicum&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum lycopersicum&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum lycopersicum&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Solanum melongena&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum melongena&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum melongena&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum melongena&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum melongena&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Solanum lycopersicum&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum melongena&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum lycopersicum&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum melongena&quot;</span><span class="p">,</span> <span class="s2">&quot;Solanum lycopersicum&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># === Label Encoding ===</span>
+<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Kelas&#39;</span><span class="p">])</span>  <span class="c1"># lycopersicum=1, melongena=0 (tergantung urutan)</span>
+
+<span class="c1"># === Fitur dan Target ===</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Tinggi Tanaman (cm)&quot;</span><span class="p">,</span> <span class="s2">&quot;Diameter Daun (cm)&quot;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Label&quot;</span><span class="p">]</span>  <span class="c1"># gunakan label numerik hasil encoding</span>
+
+<span class="c1"># === Train Decision Tree ===</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;gini&quot;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># === 1. Tampilkan Pohon Keputusan ===</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Pohon Keputusan (Decision Tree) ===&quot;</span><span class="p">)</span>
+<span class="n">tree_rules</span> <span class="o">=</span> <span class="n">export_text</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tree_rules</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Pohon Keputusan (Decision Tree) ===
+|--- Tinggi Tanaman (cm) &lt;= 70.50
+|   |--- class: 1
+|--- Tinggi Tanaman (cm) &gt;  70.50
+|   |--- class: 0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualisasi-splitting-predict">
+<h2><strong>Visualisasi Splitting Predict</strong><a class="headerlink" href="#visualisasi-splitting-predict" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># === Uji 2 Data Baru ===</span>
+<span class="n">uji_baru</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">67</span><span class="p">,</span> <span class="mi">83</span><span class="p">],</span>
+    <span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">11.9</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">prediksi</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">uji_baru</span><span class="p">)</span>
+<span class="n">hasil</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediksi</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Prediksi 2 Data Baru ===&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">uji_baru</span><span class="p">[</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">],</span> <span class="n">uji_baru</span><span class="p">[</span><span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">])):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: Tinggi=</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2"> cm, Diameter=</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2"> cm → Prediksi: </span><span class="si">{</span><span class="n">hasil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># === Visualisasi Decision Boundary ===</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Visualisasi Decision Boundary ===&quot;</span><span class="p">)</span>
+<span class="n">plot_colors</span> <span class="o">=</span> <span class="s2">&quot;ry&quot;</span>
+<span class="n">plot_step</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">5</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">plot_step</span><span class="p">),</span>
+                     <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">plot_step</span><span class="p">))</span>
+
+<span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()]</span>
+<span class="n">grid_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">,</span> <span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">])</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">grid_df</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">ListedColormap</span>
+
+<span class="c1"># Buat colormap custom</span>
+<span class="n">custom_cmap</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s2">&quot;saddlebrown&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">custom_cmap</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>  <span class="c1"># ganti dengan colormap coklat-hijau</span>
+
+<span class="c1"># Plot titik data training</span>
+<span class="n">plot_colors</span> <span class="o">=</span> <span class="s2">&quot;yr&quot;</span>  <span class="c1"># y = yellow, r = red</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">plot_colors</span><span class="p">):</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">label</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">],</span>
+                <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([</span><span class="n">label</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Plot data uji baru (tetap hitam)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">uji_baru</span><span class="p">[</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">],</span> <span class="n">uji_baru</span><span class="p">[</span><span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">],</span>
+            <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data Uji Baru&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tinggi Tanaman (cm)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Diameter Daun (cm)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Decision Boundary (Tinggi vs Diameter Daun)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Prediksi 2 Data Baru ===
+Data 1: Tinggi=67 cm, Diameter=10.0 cm → Prediksi: Solanum melongena
+Data 2: Tinggi=83 cm, Diameter=11.9 cm → Prediksi: Solanum lycopersicum
+
+=== Visualisasi Decision Boundary ===
+</pre></div>
+</div>
+<img alt="_images/a063e9d007613218b34a4bce7241633b4741c971d7d08ed9e2f6179847ef81c9.png" src="_images/a063e9d007613218b34a4bce7241633b4741c971d7d08ed9e2f6179847ef81c9.png" />
+</div>
+</div>
+</section>
+<section id="setelah-dimasukkan-2-data-baru">
+<h2><strong>Setelah dimasukkan 2 data baru</strong><a class="headerlink" href="#setelah-dimasukkan-2-data-baru" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># === Data Latih ===</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Tinggi Tanaman (cm)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">66</span><span class="p">],</span>
+    <span class="s2">&quot;Diameter Daun (cm)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">11.5</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">,</span> <span class="mf">11.8</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">,</span> <span class="mf">9.2</span><span class="p">,</span> <span class="mf">8.8</span><span class="p">,</span> <span class="mf">9.1</span><span class="p">],</span>
+    <span class="s2">&quot;Kelas&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Tomat&quot;</span><span class="p">,</span> <span class="s2">&quot;Tomat&quot;</span><span class="p">,</span> <span class="s2">&quot;Tomat&quot;</span><span class="p">,</span> <span class="s2">&quot;Tomat&quot;</span><span class="p">,</span> <span class="s2">&quot;Tomat&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;Terong&quot;</span><span class="p">,</span> <span class="s2">&quot;Terong&quot;</span><span class="p">,</span> <span class="s2">&quot;Terong&quot;</span><span class="p">,</span> <span class="s2">&quot;Terong&quot;</span><span class="p">,</span> <span class="s2">&quot;Terong&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># === Label Encoding ===</span>
+<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Kelas&#39;</span><span class="p">])</span>  <span class="c1"># Tomat=1, Terong=0</span>
+
+<span class="c1"># === Fitur dan Target ===</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Tinggi Tanaman (cm)&quot;</span><span class="p">,</span> <span class="s2">&quot;Diameter Daun (cm)&quot;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Label&quot;</span><span class="p">]</span>
+
+<span class="c1"># === Train Decision Tree ===</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;gini&quot;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># === Data Uji Baru ===</span>
+<span class="n">uji_baru</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Tinggi Tanaman (cm)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">67</span><span class="p">,</span> <span class="mi">83</span><span class="p">],</span>
+    <span class="s2">&quot;Diameter Daun (cm)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">11.9</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># === Visualisasi Decision Boundary ===</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Visualisasi Decision Boundary ===&quot;</span><span class="p">)</span>
+<span class="n">plot_colors</span> <span class="o">=</span> <span class="s2">&quot;yr&quot;</span>  <span class="c1"># y = kuning (Terong), r = merah (Tomat)</span>
+<span class="n">plot_step</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">5</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">plot_step</span><span class="p">),</span>
+                     <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">plot_step</span><span class="p">))</span>
+
+<span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()]</span>
+<span class="n">grid_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">,</span> <span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">])</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">grid_df</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># Custom colormap untuk area (kelas)</span>
+<span class="n">custom_cmap</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s2">&quot;saddlebrown&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">])</span>  <span class="c1"># Terong=coklat, Tomat=hijau</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">custom_cmap</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="c1"># Plot titik data training</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">plot_colors</span><span class="p">):</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">label</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">],</span>
+                <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([</span><span class="n">label</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Plot data uji baru</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">uji_baru</span><span class="p">[</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">],</span> <span class="n">uji_baru</span><span class="p">[</span><span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">],</span>
+            <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data Uji Baru&#39;</span><span class="p">)</span>
+
+<span class="n">prediksi</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">uji_baru</span><span class="p">)</span>
+<span class="n">hasil</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediksi</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">uji_baru</span><span class="p">[</span><span class="s1">&#39;Tinggi Tanaman (cm)&#39;</span><span class="p">],</span> <span class="n">uji_baru</span><span class="p">[</span><span class="s1">&#39;Diameter Daun (cm)&#39;</span><span class="p">])):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data Uji </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: Tinggi=</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">, Diameter=</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2"> → Prediksi: </span><span class="si">{</span><span class="n">hasil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Label sumbu dan tampilan</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tinggi Tanaman (cm)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Diameter Daun (cm)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Decision Boundary (Tinggi vs Diameter Daun)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Visualisasi Decision Boundary ===
+Data Uji 1: Tinggi=67, Diameter=10.0 → Prediksi: Terong
+Data Uji 2: Tinggi=83, Diameter=11.9 → Prediksi: Tomat
+</pre></div>
+</div>
+<img alt="_images/f66de573862404f20d6864de8084dde1788f9ad9c1eadceb053d313480e9b0ae.png" src="_images/f66de573862404f20d6864de8084dde1788f9ad9c1eadceb053d313480e9b0ae.png" />
+</div>
+</div>
+</section>
+<section id="visualisasi-decisiontree-dalam-bentuk-gambar">
+<h2><strong>Visualisasi DecisionTree dalam bentuk gambar</strong><a class="headerlink" href="#visualisasi-decisiontree-dalam-bentuk-gambar" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># === 2. Visualisasi (opsional) ===</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Pohon Keputusan: Tomat vs Terong&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/133b69f496eef2da7703c8c53b78a31e7193b6eb9f10afe2cc2f2dd53ec3ae33.png" src="_images/133b69f496eef2da7703c8c53b78a31e7193b6eb9f10afe2cc2f2dd53ec3ae33.png" />
+</div>
+</div>
+</section>
+<section id="menampilkan-rule-rule">
+<h2><strong>Menampilkan Rule-rule</strong><a class="headerlink" href="#menampilkan-rule-rule" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Rules ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RULE 1: Jika Tinggi ≤ 71.5 cm dan Diameter ≤ 9.55 cm → Kelas = Terong&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RULE 2: Jika Tinggi ≤ 71.5 cm dan Diameter &gt; 9.55 cm → Kelas = Tomat&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RULE 3: Jika Tinggi &gt; 71.5 cm → Kelas = Tomat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Rules ===
+RULE 1: Jika Tinggi ≤ 71.5 cm dan Diameter ≤ 9.55 cm → Kelas = Terong
+RULE 2: Jika Tinggi ≤ 71.5 cm dan Diameter &gt; 9.55 cm → Kelas = Tomat
+RULE 3: Jika Tinggi &gt; 71.5 cm → Kelas = Tomat
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengumpulkan-data"><strong>Mengumpulkan data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-manual-menggunakan-information-gain-untuk-klasifikasi"><strong>Menghitung Manual menggunakan Information gain untuk Klasifikasi</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inisialisasi-data-berdasarkan-kelas"><strong>Inisialisasi data berdasarkan kelas</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-entropi-awal-s"><strong>Menghitung Entropi Awal (S)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-1-tinggi-tanaman"><strong>Fitur 1 (Tinggi Tanaman)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-threshold"><strong>Ambil Threshold</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-information-gain"><strong>Hitung Information gain</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-gini-index"><strong>Hitung Gini Index</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-2-diameter-daun"><strong>Fitur 2 (Diameter daun)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Ambil Threshold</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-entropi"><strong>Hitung Entropi</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Hitung Information gain</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gini-index"><strong>Gini Index</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-perbandingan"><strong>Kesimpulan Perbandingan</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-menggunakan-desiciontree"><strong>Visualisasi menggunakan DesicionTree</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-splitting-predict"><strong>Visualisasi Splitting Predict</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setelah-dimasukkan-2-data-baru"><strong>Setelah dimasukkan 2 data baru</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-decisiontree-dalam-bentuk-gambar"><strong>Visualisasi DecisionTree dalam bentuk gambar</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-rule-rule"><strong>Menampilkan Rule-rule</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
