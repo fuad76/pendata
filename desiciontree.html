@@ -388,13 +388,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-entropi-awal-s"><strong>Menghitung Entropi Awal (S)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-1-tinggi-tanaman"><strong>Fitur 1 (Tinggi Tanaman)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-threshold"><strong>Ambil Threshold</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-entropi"><strong>Hitung Entropi</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-information-gain"><strong>Hitung Information gain</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-gini-index"><strong>Hitung Gini Index</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-2-diameter-daun"><strong>Fitur 2 (Diameter daun)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Ambil Threshold</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-entropi"><strong>Hitung Entropi</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Hitung Information gain</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gini-index"><strong>Gini Index</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Hitung Entropi</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Hitung Information gain</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Hitung Gini Index</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-perbandingan"><strong>Kesimpulan Perbandingan</strong></a></li>
 </ul>
 </li>
@@ -522,7 +523,7 @@ document.write(`
 <h3><strong>Menghitung Entropi Awal (S)</strong><a class="headerlink" href="#menghitung-entropi-awal-s" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
-Entropy(D) = -p_1 \log_2(p_1) - p_2 \log_2(p_2)
+Entropi(D) = -p_1 \log_2(p_1) - p_2 \log_2(p_2)
 \]</div>
 <div class="math notranslate nohighlight">
 \[
@@ -530,7 +531,7 @@ p_1 = \frac{8}{15},\quad p_2 = \frac{7}{15}
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-Entropy(D) = -\frac{8}{15} \log_2 \frac{8}{15} - \frac{7}{15} \log_2 \frac{7}{15} \approx 0.996
+Entropi(D) = -\frac{8}{15} \log_2 \frac{8}{15} - \frac{7}{15} \log_2 \frac{7}{15} \approx 0.996
 \]</div>
 </section>
 <section id="fitur-1-tinggi-tanaman">
@@ -610,41 +611,46 @@ Entropy(D) = -\frac{8}{15} \log_2 \frac{8}{15} - \frac{7}{15} \log_2 \frac{7}{15
 </section>
 <section id="ambil-threshold">
 <h3><strong>Ambil Threshold</strong><a class="headerlink" href="#ambil-threshold" title="Link to this heading">#</a></h3>
-<p><strong>Threshold</strong>: 70 cm \
-<strong>Split</strong>:</p>
+<p><strong>Threshold</strong>: 70 cm</p>
+<p><strong>Split</strong>:</p>
 <ul class="simple">
 <li><p><em>Left</em> (≤70): No 6–14 → 7 data → semua kelas 1 (Terong)</p></li>
 <li><p><em>Right</em> (&gt;70): No 1–11 → 8 data → semua kelas 0 (Tomat)</p></li>
 </ul>
-<p>###<strong>Hitung Entropi</strong></p>
+</section>
+<section id="hitung-entropi">
+<h3><strong>Hitung Entropi</strong><a class="headerlink" href="#hitung-entropi" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Entropi Left</strong></p></li>
 <li><p>Semua data kelas 0(Tomat),probabilitas:
 $<span class="math notranslate nohighlight">\(
-p_{\text{Tomat}} = 0 , p_{\text{Terong}} = 1
-\)</span>$</p></li>
+ p_{\text{Tomat}} = 0 , p_{\text{Terong}} = 1
+ \)</span>$</p></li>
 </ul>
 <p>Maka:</p>
 <div class="math notranslate nohighlight">
 \[
-\text{Entropi(Left)} = - \left(1 \cdot \log_2 1 + 0 \cdot \log_2 0\right) = 0
-\]</div>
+  \text{Entropi(Left)} = - \left(1 \cdot \log_2 1 + 0 \cdot \log_2 0\right) = 0
+  \]</div>
 <ul class="simple">
 <li><p><strong>Entropi Right</strong></p></li>
 <li><p>Semua data kelas 0(Tomat),Probabilitas:
 $<span class="math notranslate nohighlight">\(
-p_{\text{Tomat}} = 1 , p_{\text{Terong}} = 0
-\)</span><span class="math notranslate nohighlight">\(
-Maka:
-\)</span><span class="math notranslate nohighlight">\(
-\text{Entropi(Right)} = - \left(1 \cdot \log_2 1 + 0 \cdot \log_2 0\right) = 0
-\)</span>$</p></li>
-<li><p><strong>Entropi Setelah Split</strong></p></li>
+ p_{\text{Tomat}} = 1 , p_{\text{Terong}} = 0
+ \)</span>$</p></li>
 </ul>
+<p>Maka:
+$<span class="math notranslate nohighlight">\(
+  \text{Entropi(Right)} = - \left(1 \cdot \log_2 1 + 0 \cdot \log_2 0\right) = 0
+  \)</span>$</p>
+<ul>
+<li><p><strong>Entropi Setelah Split</strong></p>
 <div class="math notranslate nohighlight">
 \[
-\text{Entropi}_{\text{split}} = \frac{7}{15} \cdot 0 + \frac{8}{15} \cdot 0 = 0
-\]</div>
+  \text{Entropi}_{\text{split}} = \frac{7}{15} \cdot 0 + \frac{8}{15} \cdot 0 = 0
+  \]</div>
+</li>
+</ul>
 </section>
 <section id="hitung-information-gain">
 <h3><strong>Hitung Information gain</strong><a class="headerlink" href="#hitung-information-gain" title="Link to this heading">#</a></h3>
@@ -656,24 +662,30 @@ IG = \text{Entropi}(S) - \left( \frac{7}{15} \cdot 0 + \frac{8}{15} \cdot 0 \rig
 <section id="hitung-gini-index">
 <h3><strong>Hitung Gini Index</strong><a class="headerlink" href="#hitung-gini-index" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>Gini index sebelum split</strong>
-$<span class="math notranslate nohighlight">\(
-p_0 = \frac{8}{15}, \quad p_1 = \frac{7}{15}
-\)</span>$</p></li>
+<li><p><strong>Gini index sebelum split</strong></p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[
+p_0 = \frac{8}{15}, \quad p_1 = \frac{7}{15}
+\]</div>
 <div class="math notranslate nohighlight">
 \[
 \text{Gini}(D) = 1 - \left( \frac{7}{15} \right)^2 - \left( \frac{8}{15} \right)^2
 = 1 - \frac{49}{225} - \frac{64}{225}
 = 1 - \frac{113}{225} \approx 0.498
 \]</div>
-<ul class="simple">
-<li><p><strong>Gini index setelah split</strong></p></li>
+<ul>
+<li><p><strong>Gini index setelah split</strong></p>
+<ul>
 <li><p><em>Left</em>: semua kelas terong (Gini) : 0</p></li>
-<li><p><em>Right</em>: Semua kelas tomat (Gini) : 0
-$<span class="math notranslate nohighlight">\(
-\text{Gini}_{\text{split}} = \frac{7}{15} \cdot 0 + \frac{8}{15} \cdot 0 = 0
-\)</span>$</p></li>
+<li><p><em>Right</em>: Semua kelas tomat (Gini) : 0</p>
+<div class="math notranslate nohighlight">
+\[
+    \text{Gini}_{\text{split}} = \frac{7}{15} \cdot 0 + \frac{8}{15} \cdot 0 = 0
+    \]</div>
+</li>
+</ul>
+</li>
 </ul>
 <p><strong>Hasil Sementara dari fitur 1:</strong></p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -783,8 +795,8 @@ $<span class="math notranslate nohighlight">\(
 <li><p><em>Right</em> (&gt;10.5): No 13-11 → 8 data → semua kelas 0 (Tomat)</p></li>
 </ul>
 </section>
-<section id="hitung-entropi">
-<h3><strong>Hitung Entropi</strong><a class="headerlink" href="#hitung-entropi" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3><strong>Hitung Entropi</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Karena distribusinya identik dengan fitur tinggi tanaman, maka:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -795,34 +807,40 @@ $<span class="math notranslate nohighlight">\(
 \text{Entropi}_{\text{split}} = \frac{7}{15} \cdot 0 + \frac{8}{15} \cdot 0 = 0
 \]</div>
 </section>
-<section id="id2">
-<h3><strong>Hitung Information gain</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3><strong>Hitung Information gain</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 IG = \text{Entropi}(S) - \left( \frac{8}{15} \cdot 0 + \frac{7}{15} \cdot 0 \right) = 0.996
 \]</div>
 </section>
-<section id="gini-index">
-<h3><strong>Gini Index</strong><a class="headerlink" href="#gini-index" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3><strong>Hitung Gini Index</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>Gini index sebelum split</strong>
-$<span class="math notranslate nohighlight">\(
-p_0 = \frac{8}{15}, \quad p_1 = \frac{7}{15}
-\)</span>$</p></li>
+<li><p><strong>Gini index sebelum split</strong></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
-\text{Gini}(D) = 1 - \left( \frac{8}{15} \right)^2 - \left( \frac{7}{15} \right)^2
-= 1 - \frac{64}{225} - \frac{49}{225}
-= 1 - \frac{113}{225} \approx 0.498
-\]</div>
-<ul class="simple">
-<li><p><strong>Gini index setelah split</strong></p></li>
+  p_0 = \frac{8}{15}, \quad p_1 = \frac{7}{15}
+  \]</div>
+<div class="math notranslate nohighlight">
+\[
+  \text{Gini}(D) = 1 - \left( \frac{8}{15} \right)^2 - \left( \frac{7}{15} \right)^2
+  = 1 - \frac{64}{225} - \frac{49}{225}
+  = 1 - \frac{113}{225} \approx 0.498
+  \]</div>
+<ul>
+<li><p><strong>Gini index setelah split</strong></p>
+<ul>
 <li><p><em>Left</em>: semua kelas terong (Gini) : 0</p></li>
-<li><p><em>Right</em>: Semua kelas tomat (Gini) : 0
-$<span class="math notranslate nohighlight">\(
-\text{Gini}_{\text{split}} = \frac{8}{15} \cdot 0 + \frac{7}{15} \cdot 0 = 0
-\)</span>$</p></li>
+<li><p><em>Right</em>: Semua kelas tomat (Gini) : 0</p>
+<div class="math notranslate nohighlight">
+\[
+    \text{Gini}_{\text{split}} = \frac{8}{15} \cdot 0 + \frac{7}{15} \cdot 0 = 0
+    \]</div>
+</li>
+</ul>
+</li>
 </ul>
 <p><strong>Hasil Sementara dari fitur 2:</strong></p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1185,13 +1203,14 @@ RULE 3: Jika Tinggi &gt; 71.5 cm → Kelas = Tomat
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-entropi-awal-s"><strong>Menghitung Entropi Awal (S)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-1-tinggi-tanaman"><strong>Fitur 1 (Tinggi Tanaman)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-threshold"><strong>Ambil Threshold</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-entropi"><strong>Hitung Entropi</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-information-gain"><strong>Hitung Information gain</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-gini-index"><strong>Hitung Gini Index</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitur-2-diameter-daun"><strong>Fitur 2 (Diameter daun)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Ambil Threshold</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-entropi"><strong>Hitung Entropi</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Hitung Information gain</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gini-index"><strong>Gini Index</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Hitung Entropi</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Hitung Information gain</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Hitung Gini Index</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-perbandingan"><strong>Kesimpulan Perbandingan</strong></a></li>
 </ul>
 </li>
