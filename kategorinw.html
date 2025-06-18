@@ -657,10 +657,10 @@ proses di mana kita dapat mengubah variabel kontinu, model atau fungsi menjadi b
 </section>
 <section id="klasifikasi-menggunakan-naive-bayes">
 <h2><strong>Klasifikasi menggunakan naive bayes</strong><a class="headerlink" href="#klasifikasi-menggunakan-naive-bayes" title="Link to this heading">#</a></h2>
-<p><strong>IDENTIFIKASI</strong> \
-Setelah data iris dikumpulakan klasifikasikan dengan metode naive bayes dan PCA.Tujuan dari penggunaan metode kombinasi Principal Component Analysis (PCA) dan Naive Bayes pada data Iris adalah untuk mereduksi dimensi fitur dari empat (sepal length, sepal width, petal length, dan petal width) menjadi dua dimensi utama (PC1 dan PC2), sehingga data dapat divisualisasikan secara 2D. PCA membantu menyederhanakan data tanpa kehilangan terlalu banyak informasi penting, sementara Naive Bayes digunakan untuk melakukan klasifikasi berdasarkan distribusi probabilitas dari data. Dengan menampilkan hasil klasifikasi dalam bentuk plot dua dimensi, kita dapat memahami sejauh mana model mampu memisahkan kelas-kelas bunga berdasarkan dua komponen utama tersebut.</p>
-<p><strong>HASIL &amp; INTERPRETASI</strong> \
-Hasil visualisasi menunjukkan bahwa setosa sangat mudah dibedakan dari kelas lain karena titik-titiknya berkelompok jelas di area tertentu, baik berdasarkan label asli maupun prediksi model. Namun, versicolor dan virginica sering kali tampak tumpang tindih di ruang dua dimensi, yang menyebabkan beberapa kesalahan klasifikasi oleh model Naive Bayes. Meski demikian, secara umum prediksi model cukup akurat karena sebagian besar titik memiliki warna (prediksi) dan bentuk (label asli) yang sama. Hal ini menunjukkan bahwa PCA cukup efektif dalam merangkum informasi penting dari data dan Naive Bayes mampu memanfaatkan informasi tersebut untuk klasifikasi, meskipun ada keterbatasan ketika kelas-kelas memiliki distribusi yang saling tumpang tindih. Berikut implementasi bentuk code:</p>
+<p><strong>IDENTIFIKASI</strong></p>
+<p>Setelah data iris dikumpulakan klasifikasikan dengan metode naive bayes dan PCA.Tujuan dari penggunaan metode kombinasi Principal Component Analysis (PCA) dan Naive Bayes pada data Iris adalah untuk mereduksi dimensi fitur dari empat (sepal length, sepal width, petal length, dan petal width) menjadi dua dimensi utama (PC1 dan PC2), sehingga data dapat divisualisasikan secara 2D. PCA membantu menyederhanakan data tanpa kehilangan terlalu banyak informasi penting, sementara Naive Bayes digunakan untuk melakukan klasifikasi berdasarkan distribusi probabilitas dari data. Dengan menampilkan hasil klasifikasi dalam bentuk plot dua dimensi, kita dapat memahami sejauh mana model mampu memisahkan kelas-kelas bunga berdasarkan dua komponen utama tersebut.</p>
+<p><strong>HASIL &amp; INTERPRETASI</strong></p>
+<p>Hasil visualisasi menunjukkan bahwa setosa sangat mudah dibedakan dari kelas lain karena titik-titiknya berkelompok jelas di area tertentu, baik berdasarkan label asli maupun prediksi model. Namun, versicolor dan virginica sering kali tampak tumpang tindih di ruang dua dimensi, yang menyebabkan beberapa kesalahan klasifikasi oleh model Naive Bayes. Meski demikian, secara umum prediksi model cukup akurat karena sebagian besar titik memiliki warna (prediksi) dan bentuk (label asli) yang sama. Hal ini menunjukkan bahwa PCA cukup efektif dalam merangkum informasi penting dari data dan Naive Bayes mampu memanfaatkan informasi tersebut untuk klasifikasi, meskipun ada keterbatasan ketika kelas-kelas memiliki distribusi yang saling tumpang tindih. Berikut implementasi bentuk code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Siapkan fitur dan label</span>
@@ -711,10 +711,10 @@ Akurasi: 1.0
 </section>
 <section id="klasifikasi-menggunakan-decisiontree">
 <h2><strong>Klasifikasi menggunakan DecisionTree</strong><a class="headerlink" href="#klasifikasi-menggunakan-decisiontree" title="Link to this heading">#</a></h2>
-<p><strong>IDENTIFIKASI</strong> \
-Tujuan dari penerapan Decision Tree pada dataset Iris adalah untuk membangun model klasifikasi yang dapat menjelaskan secara eksplisit proses pengambilan keputusan berdasarkan fitur-fitur sepal dan petal. Decision Tree bekerja dengan mempartisi data ke dalam cabang-cabang berdasarkan nilai ambang batas fitur yang memaksimalkan pemisahan antar kelas. Tidak seperti Naive Bayes yang mengasumsikan distribusi probabilitas, Decision Tree memberikan pendekatan yang sangat interpretatif, memungkinkan kita untuk melihat logika keputusan dalam bentuk diagram pohon. Visualisasi ini sangat berguna untuk memahami fitur mana yang paling berpengaruh dalam membedakan kelas bunga.</p>
-<p><strong>HASIL &amp; INTERPRETASI</strong> \
-Hasil evaluasi menunjukkan bahwa model Decision Tree menghasilkan akurasi tinggi, biasanya setara atau sedikit lebih baik dibanding Naive Bayes, tergantung pada pemisahan data training dan testing. Confusion matrix dan classification report memperlihatkan bahwa klasifikasi untuk setosa sangat akurat, sementara beberapa kesalahan klasifikasi mungkin terjadi pada kelas versicolor dan virginica yang memiliki kemiripan karakteristik. Visualisasi pohon keputusan menunjukkan secara langsung urutan fitur yang digunakan untuk membelah data serta nilai-nilai threshold yang digunakan, misalnya petal length (cm) sering muncul di level atas karena merupakan fitur yang sangat menentukan. Model ini sangat bermanfaat dalam konteks interpretabilitas dan pengambilan keputusan berbasis aturan eksplisit. Berikut implementasi bentuk code:</p>
+<p><strong>IDENTIFIKASI</strong></p>
+<p>Tujuan dari penerapan Decision Tree pada dataset Iris adalah untuk membangun model klasifikasi yang dapat menjelaskan secara eksplisit proses pengambilan keputusan berdasarkan fitur-fitur sepal dan petal. Decision Tree bekerja dengan mempartisi data ke dalam cabang-cabang berdasarkan nilai ambang batas fitur yang memaksimalkan pemisahan antar kelas. Tidak seperti Naive Bayes yang mengasumsikan distribusi probabilitas, Decision Tree memberikan pendekatan yang sangat interpretatif, memungkinkan kita untuk melihat logika keputusan dalam bentuk diagram pohon. Visualisasi ini sangat berguna untuk memahami fitur mana yang paling berpengaruh dalam membedakan kelas bunga.</p>
+<p><strong>HASIL &amp; INTERPRETASI</strong></p>
+<p>Hasil evaluasi menunjukkan bahwa model Decision Tree menghasilkan akurasi tinggi, biasanya setara atau sedikit lebih baik dibanding Naive Bayes, tergantung pada pemisahan data training dan testing. Confusion matrix dan classification report memperlihatkan bahwa klasifikasi untuk setosa sangat akurat, sementara beberapa kesalahan klasifikasi mungkin terjadi pada kelas versicolor dan virginica yang memiliki kemiripan karakteristik. Visualisasi pohon keputusan menunjukkan secara langsung urutan fitur yang digunakan untuk membelah data serta nilai-nilai threshold yang digunakan, misalnya petal length (cm) sering muncul di level atas karena merupakan fitur yang sangat menentukan. Model ini sangat bermanfaat dalam konteks interpretabilitas dan pengambilan keputusan berbasis aturan eksplisit. Berikut implementasi bentuk code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inisialisasi dan latih Model</span>
@@ -1198,10 +1198,10 @@ Akurasi Decision Tree   : 1.0000
 </section>
 <section id="id2">
 <h2><strong>Klasifikasi menggunakan Naive Bayes</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p><strong>IDENTIFIKASI</strong> \
-setelah data iris di diskritisasi dan di cluster menjadi 4 kelas, klasifikasi data tadi dengan metode naive bayes. Tujuan dari klasifikasi ini adalah untuk mengevaluasi performa Naive Bayes saat diterapkan pada fitur yang telah didiskretisasi, yaitu mengubah nilai numerik (misalnya panjang kelopak/sepal) menjadi kategori simbolik seperti ‘A’, ‘B’, ‘C’, dan seterusnya. Pendekatan ini cocok digunakan karena Naive Bayes, khususnya varian multinomial atau categorical, dapat bekerja lebih baik dengan data kategori atau frekuensi. Dalam implementasi ini, simbol-simbol diskrit dikonversi kembali ke nilai numerik ordinal (A→0, B→1, dst) agar bisa digunakan oleh model Naive Bayes dari scikit-learn, yang memerlukan input numerik. Dengan metode ini, kita dapat menilai apakah transformasi data dari bentuk kontinu ke diskrit memengaruhi kinerja klasifikasi.</p>
-<p><strong>HASIL &amp; INTERPRETASI</strong> \
-Berdasarkan hasil evaluasi, Naive Bayes masih mampu menghasilkan akurasi yang cukup baik meskipun data telah diubah menjadi bentuk diskrit. Confusion matrix dan classification report menunjukkan bahwa prediksi model tetap cukup akurat untuk sebagian besar kelas, terutama pada kelas yang secara visual dan statistik sangat terpisah seperti setosa. Namun, diskretisasi bisa mengurangi ketelitian dalam membedakan kelas yang saling tumpang tindih seperti versicolor dan virginica, karena informasi numerik yang presisi telah disederhanakan menjadi kategori. Meski demikian, hasil ini menunjukkan bahwa Naive Bayes cukup fleksibel dan tetap efektif ketika digunakan pada data simbolik atau setelah proses pre-processing berbasis diskretisasi. Berikut implementasi bentuk code:</p>
+<p><strong>IDENTIFIKASI</strong></p>
+<p>setelah data iris di diskritisasi dan di cluster menjadi 4 kelas, klasifikasi data tadi dengan metode naive bayes. Tujuan dari klasifikasi ini adalah untuk mengevaluasi performa Naive Bayes saat diterapkan pada fitur yang telah didiskretisasi, yaitu mengubah nilai numerik (misalnya panjang kelopak/sepal) menjadi kategori simbolik seperti ‘A’, ‘B’, ‘C’, dan seterusnya. Pendekatan ini cocok digunakan karena Naive Bayes, khususnya varian multinomial atau categorical, dapat bekerja lebih baik dengan data kategori atau frekuensi. Dalam implementasi ini, simbol-simbol diskrit dikonversi kembali ke nilai numerik ordinal (A→0, B→1, dst) agar bisa digunakan oleh model Naive Bayes dari scikit-learn, yang memerlukan input numerik. Dengan metode ini, kita dapat menilai apakah transformasi data dari bentuk kontinu ke diskrit memengaruhi kinerja klasifikasi.</p>
+<p><strong>HASIL &amp; INTERPRETASI</strong></p>
+<p>Berdasarkan hasil evaluasi, Naive Bayes masih mampu menghasilkan akurasi yang cukup baik meskipun data telah diubah menjadi bentuk diskrit. Confusion matrix dan classification report menunjukkan bahwa prediksi model tetap cukup akurat untuk sebagian besar kelas, terutama pada kelas yang secara visual dan statistik sangat terpisah seperti setosa. Namun, diskretisasi bisa mengurangi ketelitian dalam membedakan kelas yang saling tumpang tindih seperti versicolor dan virginica, karena informasi numerik yang presisi telah disederhanakan menjadi kategori. Meski demikian, hasil ini menunjukkan bahwa Naive Bayes cukup fleksibel dan tetap efektif ketika digunakan pada data simbolik atau setelah proses pre-processing berbasis diskretisasi. Berikut implementasi bentuk code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Siapkan fitur diskrit dan target</span>
@@ -1253,8 +1253,8 @@ Akurasi: 0.9666666666666667
 </section>
 <section id="id3">
 <h2><strong>Klasifikasi Menggunakan DecisionTree</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p><strong>IDENTIFIKASI</strong> \
-Tujuan dari penerapan Decision Tree pada fitur yang telah didiskretisasi adalah untuk mengevaluasi performa model dalam membedakan kelas berdasarkan data kategori yang diubah dari bentuk numerik kontinu menjadi simbol ordinal seperti A, B, C, dan selanjutnya dikonversi ke angka. Dengan menggunakan fitur diskrit, pohon keputusan dapat membentuk aturan yang lebih sederhana dan lebih eksplisit, karena setiap keputusan hanya melibatkan pemisahan berdasarkan level kategori, bukan nilai numerik yang kompleks. Ini sangat sesuai dengan sifat dasar Decision Tree yang bekerja berdasarkan pembelahan data ke dalam cabang berdasarkan kondisi logis (misalnya, apakah fitur = 1 atau tidak).</p>
+<p><strong>IDENTIFIKASI</strong></p>
+<p>Tujuan dari penerapan Decision Tree pada fitur yang telah didiskretisasi adalah untuk mengevaluasi performa model dalam membedakan kelas berdasarkan data kategori yang diubah dari bentuk numerik kontinu menjadi simbol ordinal seperti A, B, C, dan selanjutnya dikonversi ke angka. Dengan menggunakan fitur diskrit, pohon keputusan dapat membentuk aturan yang lebih sederhana dan lebih eksplisit, karena setiap keputusan hanya melibatkan pemisahan berdasarkan level kategori, bukan nilai numerik yang kompleks. Ini sangat sesuai dengan sifat dasar Decision Tree yang bekerja berdasarkan pembelahan data ke dalam cabang berdasarkan kondisi logis (misalnya, apakah fitur = 1 atau tidak).</p>
 <p><strong>HASIL &amp; INTERPRETASI</strong></p>
 <p>Hasil evaluasi menunjukkan bahwa Decision Tree masih mampu memberikan performa klasifikasi yang baik meskipun data yang digunakan telah mengalami diskretisasi. Akurasi model tetap tinggi, dan confusion matrix memperlihatkan bahwa sebagian besar prediksi sesuai dengan label sebenarnya, terutama untuk kelas yang memiliki pola kategori yang konsisten. Visualisasi pohon keputusan memperjelas logika model dalam membuat prediksi berdasarkan fitur-fitur diskrit, dengan cabang-cabang yang menunjukkan urutan pengambilan keputusan berdasarkan nilai kategori numerik. Hal ini sangat membantu dalam interpretasi, karena setiap jalur pada pohon dapat dianggap sebagai aturan klasifikasi yang sederhana dan transparan. Meski begitu, diskretisasi berisiko menghilangkan detail informasi yang bisa berguna dalam pemisahan yang lebih presisi. Berikut implementasi bentuk code:</p>
 <div class="cell docutils container">
@@ -1586,10 +1586,10 @@ Batas-batas   : [0.1, 0.7, 1.3, 1.9, 2.5]
 </section>
 <section id="id4">
 <h2><strong>Klasifikasi Menggunakan Naive Bayes</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p><strong>IDENTIFIKASI</strong> \
-Tujuan dari proses klasifikasi ini adalah untuk mengevaluasi performa algoritma Naive Bayes ketika digunakan pada data yang telah mengalami proses diskretisasi umum, yaitu mengubah nilai numerik menjadi label simbolik (A, B, C, dst). Diskretisasi dilakukan pada seluruh fitur dalam dataset, yang kemudian dikonversi kembali ke bentuk numerik ordinal agar dapat diproses oleh model Naive Bayes. Langkah ini diambil untuk melihat bagaimana model probabilistik ini bekerja ketika data kehilangan nilai numerik presisi dan digantikan oleh kategori. Metode ini sering digunakan dalam situasi ketika data asli bersifat kontinu, namun kita ingin menyederhanakannya atau mempersiapkannya untuk algoritma yang lebih cocok dengan data diskrit.</p>
-<p><strong>HASIL &amp; INTERPRETASI</strong> \
-Hasil evaluasi menunjukkan bahwa Naive Bayes tetap mampu melakukan klasifikasi dengan cukup baik, meskipun bekerja dengan fitur-fitur yang telah disederhanakan menjadi bentuk diskrit. Confusion matrix dan classification report memperlihatkan bahwa model masih dapat mengidentifikasi kelas utama dengan cukup akurat, meskipun mungkin terjadi penurunan kinerja pada kelas yang memiliki nilai fitur yang sebelumnya sangat dekat atau tumpang tindih. Akurasi yang dihasilkan tetap kompetitif, membuktikan bahwa Naive Bayes cukup fleksibel dalam menghadapi perubahan representasi data. Namun, seperti pada umumnya diskretisasi, ada risiko informasi penting hilang, sehingga perlu dipertimbangkan konteks penggunaannya. Berikut Implementasi bentuk code:</p>
+<p><strong>IDENTIFIKASI</strong></p>
+<p>Tujuan dari proses klasifikasi ini adalah untuk mengevaluasi performa algoritma Naive Bayes ketika digunakan pada data yang telah mengalami proses diskretisasi umum, yaitu mengubah nilai numerik menjadi label simbolik (A, B, C, dst). Diskretisasi dilakukan pada seluruh fitur dalam dataset, yang kemudian dikonversi kembali ke bentuk numerik ordinal agar dapat diproses oleh model Naive Bayes. Langkah ini diambil untuk melihat bagaimana model probabilistik ini bekerja ketika data kehilangan nilai numerik presisi dan digantikan oleh kategori. Metode ini sering digunakan dalam situasi ketika data asli bersifat kontinu, namun kita ingin menyederhanakannya atau mempersiapkannya untuk algoritma yang lebih cocok dengan data diskrit.</p>
+<p><strong>HASIL &amp; INTERPRETASI</strong></p>
+<p>Hasil evaluasi menunjukkan bahwa Naive Bayes tetap mampu melakukan klasifikasi dengan cukup baik, meskipun bekerja dengan fitur-fitur yang telah disederhanakan menjadi bentuk diskrit. Confusion matrix dan classification report memperlihatkan bahwa model masih dapat mengidentifikasi kelas utama dengan cukup akurat, meskipun mungkin terjadi penurunan kinerja pada kelas yang memiliki nilai fitur yang sebelumnya sangat dekat atau tumpang tindih. Akurasi yang dihasilkan tetap kompetitif, membuktikan bahwa Naive Bayes cukup fleksibel dalam menghadapi perubahan representasi data. Namun, seperti pada umumnya diskretisasi, ada risiko informasi penting hilang, sehingga perlu dipertimbangkan konteks penggunaannya. Berikut Implementasi bentuk code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ambil fitur diskrit dan label</span>
@@ -1605,15 +1605,15 @@ Hasil evaluasi menunjukkan bahwa Naive Bayes tetap mampu melakukan klasifikasi d
 <span class="n">nb_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_nb</span><span class="p">,</span> <span class="n">y_train_nb</span><span class="p">)</span>
 
 <span class="c1"># Prediksi</span>
-<span class="n">y_pred_nb</span> <span class="o">=</span> <span class="n">nb_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_nb</span><span class="p">)</span>
+<span class="n">y_pred_Tb</span> <span class="o">=</span> <span class="n">nb_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_nb</span><span class="p">)</span>
 
 <span class="c1"># Evaluasi</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Evaluasi Naive Bayes (Equal Width) ===&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test_nb</span><span class="p">,</span> <span class="n">y_pred_nb</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test_nb</span><span class="p">,</span> <span class="n">y_pred_Tb</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test_nb</span><span class="p">,</span> <span class="n">y_pred_nb</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_nb</span><span class="p">,</span> <span class="n">y_pred_nb</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test_nb</span><span class="p">,</span> <span class="n">y_pred_Tb</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_nb</span><span class="p">,</span> <span class="n">y_pred_Tb</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1643,10 +1643,10 @@ Akurasi: 0.9
 </section>
 <section id="id5">
 <h2><strong>Klasifikasi Menggunakan DecisionTree</strong><a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p><strong>IDENTIFIKASI</strong> \
-Tujuan dari eksperimen ini adalah untuk menerapkan algoritma Decision Tree pada dataset Iris yang telah melalui proses diskretisasi fitur. Setiap fitur numerik pada dataset diubah ke dalam bentuk simbolik (seperti A–D) dan kemudian dikonversi menjadi angka ordinal agar dapat digunakan sebagai input model. Pendekatan ini bertujuan untuk menguji bagaimana performa Decision Tree dalam mengklasifikasikan data simbolik, serta mengevaluasi apakah pemangkasan nilai numerik menjadi kategori masih dapat mempertahankan kemampuan pemodelan terhadap pola data. Decision Tree sangat cocok untuk data kategori karena dapat membuat keputusan berdasarkan nilai diskrit secara langsung, sehingga metode ini sangat relevan untuk dicoba dalam konteks ini.</p>
-<p><strong>HASIL &amp; INTERPRETASI</strong> \
-Berdasarkan hasil evaluasi, model Decision Tree menunjukkan kinerja klasifikasi yang cukup baik, dengan akurasi yang relatif tinggi meskipun bekerja pada data hasil diskretisasi. Confusion matrix menunjukkan distribusi prediksi benar dan salah antar kelas, sedangkan classification report memberi gambaran detail tentang precision, recall, dan F1-score untuk tiap kelas. Visualisasi pohon keputusan yang dihasilkan juga memberikan interpretasi yang mudah dipahami mengenai bagaimana model mengambil keputusan dari fitur-fitur diskrit yang ada. Hasil ini menunjukkan bahwa Decision Tree merupakan model yang robust terhadap perubahan bentuk data, terutama pada data kategorikal atau hasil diskretisasi.</p>
+<p><strong>IDENTIFIKASI</strong></p>
+<p>Tujuan dari eksperimen ini adalah untuk menerapkan algoritma Decision Tree pada dataset Iris yang telah melalui proses diskretisasi fitur. Setiap fitur numerik pada dataset diubah ke dalam bentuk simbolik (seperti A–D) dan kemudian dikonversi menjadi angka ordinal agar dapat digunakan sebagai input model. Pendekatan ini bertujuan untuk menguji bagaimana performa Decision Tree dalam mengklasifikasikan data simbolik, serta mengevaluasi apakah pemangkasan nilai numerik menjadi kategori masih dapat mempertahankan kemampuan pemodelan terhadap pola data. Decision Tree sangat cocok untuk data kategori karena dapat membuat keputusan berdasarkan nilai diskrit secara langsung, sehingga metode ini sangat relevan untuk dicoba dalam konteks ini.</p>
+<p><strong>HASIL &amp; INTERPRETASI</strong></p>
+<p>Berdasarkan hasil evaluasi, model Decision Tree menunjukkan kinerja klasifikasi yang cukup baik, dengan akurasi yang relatif tinggi meskipun bekerja pada data hasil diskretisasi. Confusion matrix menunjukkan distribusi prediksi benar dan salah antar kelas, sedangkan classification report memberi gambaran detail tentang precision, recall, dan F1-score untuk tiap kelas. Visualisasi pohon keputusan yang dihasilkan juga memberikan interpretasi yang mudah dipahami mengenai bagaimana model mengambil keputusan dari fitur-fitur diskrit yang ada. Hasil ini menunjukkan bahwa Decision Tree merupakan model yang robust terhadap perubahan bentuk data, terutama pada data kategorikal atau hasil diskretisasi.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ambil fitur diskrit dan label (bisa gunakan kembali variabel yang sama)</span>
@@ -1691,7 +1691,9 @@ Confusion Matrix:
  [ 0  1 10]]
 
 Classification Report:
-              precision    recall  f1-score   support
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
       setosa       1.00      1.00      1.00        10
   versicolor       0.90      1.00      0.95         9
@@ -1714,7 +1716,7 @@ Akurasi: 0.9666666666666667
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung akurasi masing-masing model</span>
-<span class="n">acc_nb</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">acc_nb</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_Tb</span><span class="p">)</span>
 <span class="n">acc_dt</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_dd</span><span class="p">)</span>
 
 
@@ -1743,11 +1745,11 @@ Akurasi: 0.9666666666666667
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Perbandingan Akurasi ===
-Akurasi Naive Bayes     : 0.9667
+Akurasi Naive Bayes     : 0.9000
 Akurasi Decision Tree   : 0.9667
 </pre></div>
 </div>
-<img alt="_images/6c24bb506fe0ab7889255d663d20abbbbce3b4ee5aee65713ccb9dbabc380f58.png" src="_images/6c24bb506fe0ab7889255d663d20abbbbce3b4ee5aee65713ccb9dbabc380f58.png" />
+<img alt="_images/6bf395e601246ffbe8e088b2f915b11ebbfd0c6dd87fee2b4ac43fa3aa26e27b.png" src="_images/6bf395e601246ffbe8e088b2f915b11ebbfd0c6dd87fee2b4ac43fa3aa26e27b.png" />
 </div>
 </div>
 </section>
@@ -1994,10 +1996,10 @@ Batas bin: [0.099999, np.float64(0.3), np.float64(1.3), np.float64(1.8), 2.50000
 </section>
 <section id="id7">
 <h2><strong>Klasifikasi Menggunakan Naive Bayes</strong><a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<p><strong>IDENTIFIKASI</strong> \
-Tujuan dari eksperimen ini adalah untuk mengevaluasi kinerja model Naive Bayes saat bekerja dengan data yang telah didiskretisasi menggunakan metode Equal Frequency. Diskretisasi ini membagi setiap fitur numerik menjadi beberapa kategori yang masing-masing berisi jumlah data yang hampir sama. Teknik ini dilakukan untuk menyederhanakan kompleksitas data dan mengubah fitur numerik menjadi fitur kategorikal, yang kemudian dikonversi menjadi nilai ordinal agar bisa digunakan dalam proses pelatihan model Naive Bayes. Langkah ini juga membantu menilai sejauh mana model probabilistik seperti Naive Bayes mampu menggeneralisasi dari data yang kehilangan informasi kuantitatif aslinya.</p>
-<p><strong>HASIL &amp; INTERPRETASI</strong> \
-Berdasarkan hasil evaluasi, model Naive Bayes menunjukkan tingkat akurasi yang cukup baik, meskipun terdapat beberapa kesalahan klasifikasi. Confusion matrix dan classification report memperlihatkan bahwa sebagian besar prediksi kelas berhasil dilakukan dengan benar, namun ada beberapa instance yang salah klasifikasi, terutama di antara kelas yang mirip secara fitur. Ini menunjukkan bahwa Naive Bayes masih cukup efektif dalam mengenali pola meskipun data telah mengalami diskretisasi yang mengurangi ketelitian nilai aslinya. Namun demikian, hilangnya informasi numerik yang spesifik kemungkinan mempengaruhi sensitivitas model terhadap perbedaan halus antar kelas. Berikut Implementasi bentuk code:</p>
+<p><strong>IDENTIFIKASI</strong></p>
+<p>Tujuan dari eksperimen ini adalah untuk mengevaluasi kinerja model Naive Bayes saat bekerja dengan data yang telah didiskretisasi menggunakan metode Equal Frequency. Diskretisasi ini membagi setiap fitur numerik menjadi beberapa kategori yang masing-masing berisi jumlah data yang hampir sama. Teknik ini dilakukan untuk menyederhanakan kompleksitas data dan mengubah fitur numerik menjadi fitur kategorikal, yang kemudian dikonversi menjadi nilai ordinal agar bisa digunakan dalam proses pelatihan model Naive Bayes. Langkah ini juga membantu menilai sejauh mana model probabilistik seperti Naive Bayes mampu menggeneralisasi dari data yang kehilangan informasi kuantitatif aslinya.</p>
+<p><strong>HASIL &amp; INTERPRETASI</strong></p>
+<p>Berdasarkan hasil evaluasi, model Naive Bayes menunjukkan tingkat akurasi yang cukup baik, meskipun terdapat beberapa kesalahan klasifikasi. Confusion matrix dan classification report memperlihatkan bahwa sebagian besar prediksi kelas berhasil dilakukan dengan benar, namun ada beberapa instance yang salah klasifikasi, terutama di antara kelas yang mirip secara fitur. Ini menunjukkan bahwa Naive Bayes masih cukup efektif dalam mengenali pola meskipun data telah mengalami diskretisasi yang mengurangi ketelitian nilai aslinya. Namun demikian, hilangnya informasi numerik yang spesifik kemungkinan mempengaruhi sensitivitas model terhadap perbedaan halus antar kelas. Berikut Implementasi bentuk code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># === Konversi label A-D ke angka 0-3 ===</span>
@@ -2036,7 +2038,9 @@ Confusion Matrix:
  [ 0  1 10]]
 
 Classification Report:
-              precision    recall  f1-score   support
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
       setosa       1.00      1.00      1.00        10
   versicolor       0.89      0.89      0.89         9
@@ -2054,10 +2058,10 @@ Akurasi: 0.9333333333333333
 </section>
 <section id="klasifisikas-dengan-decisiontree">
 <h2><strong>Klasifisikas dengan DecisionTree</strong><a class="headerlink" href="#klasifisikas-dengan-decisiontree" title="Link to this heading">#</a></h2>
-<p><strong>IDENTIFIKASI</strong> \
-Penerapan algoritma Decision Tree pada data yang telah didiskretisasi menggunakan metode Equal Frequency bertujuan untuk mengevaluasi bagaimana performa model pohon keputusan dalam mengklasifikasi data kategorikal ordinal. Diskretisasi ini membagi fitur numerik menjadi sejumlah interval dengan jumlah data yang seimbang, dan setiap nilai kategori kemudian dikonversi ke dalam angka agar bisa diproses oleh model. Penggunaan Decision Tree pada data diskrit memungkinkan visualisasi struktur pohon yang lebih sederhana, serta menguji apakah pemangkasan data numerik ke dalam kategori tetap dapat mempertahankan akurasi klasifikasi.</p>
-<p><strong>HASIL &amp; INTERPRETASI</strong> \
-Hasil evaluasi menunjukkan bahwa model Decision Tree mampu menghasilkan tingkat akurasi yang tinggi pada data hasil diskretisasi Equal Frequency. Berdasarkan confusion matrix dan classification report, sebagian besar data uji berhasil diklasifikasikan dengan benar, dan hanya terdapat sedikit kesalahan prediksi. Visualisasi pohon keputusan juga memperlihatkan jalur pemisahan antar kelas yang cukup jelas berdasarkan fitur-fitur diskrit yang digunakan. Hal ini menandakan bahwa Decision Tree merupakan algoritma yang cukup fleksibel dalam menghadapi data kategorikal, dan diskretisasi Equal Frequency tidak terlalu mengurangi kualitas informasi penting dari fitur aslinya. Berikut implementasi bentuk code:</p>
+<p><strong>IDENTIFIKASI</strong></p>
+<p>Penerapan algoritma Decision Tree pada data yang telah didiskretisasi menggunakan metode Equal Frequency bertujuan untuk mengevaluasi bagaimana performa model pohon keputusan dalam mengklasifikasi data kategorikal ordinal. Diskretisasi ini membagi fitur numerik menjadi sejumlah interval dengan jumlah data yang seimbang, dan setiap nilai kategori kemudian dikonversi ke dalam angka agar bisa diproses oleh model. Penggunaan Decision Tree pada data diskrit memungkinkan visualisasi struktur pohon yang lebih sederhana, serta menguji apakah pemangkasan data numerik ke dalam kategori tetap dapat mempertahankan akurasi klasifikasi.</p>
+<p><strong>HASIL &amp; INTERPRETASI</strong></p>
+<p>Hasil evaluasi menunjukkan bahwa model Decision Tree mampu menghasilkan tingkat akurasi yang tinggi pada data hasil diskretisasi Equal Frequency. Berdasarkan confusion matrix dan classification report, sebagian besar data uji berhasil diklasifikasikan dengan benar, dan hanya terdapat sedikit kesalahan prediksi. Visualisasi pohon keputusan juga memperlihatkan jalur pemisahan antar kelas yang cukup jelas berdasarkan fitur-fitur diskrit yang digunakan. Hal ini menandakan bahwa Decision Tree merupakan algoritma yang cukup fleksibel dalam menghadapi data kategorikal, dan diskretisasi Equal Frequency tidak terlalu mengurangi kualitas informasi penting dari fitur aslinya. Berikut implementasi bentuk code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data (ulang supaya fair)</span>
